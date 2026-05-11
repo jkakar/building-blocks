@@ -115,7 +115,7 @@ colon, then the title. Pick the most specific prefix that fits.
 | `site:`     | VitePress config, theme, navigation, or landing page |
 | `build:`    | Build, CI, or deploy tooling |
 | `deps:`     | Dependency bumps |
-| `repo:`     | Repo plumbing — `AGENTS.md`, `README.md`, `.gitignore`, top-level config |
+| `repo:`     | Repo plumbing — `AGENTS.md`, `README.md`, `.gitignore`, etc. |
 
 This list isn't exhaustive — add a new prefix when an existing one
 doesn't fit. The goal is scanability.

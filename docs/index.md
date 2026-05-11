@@ -14,7 +14,11 @@ features:
   - title: Build a real game
     details: A brick-breaker, version by version. Every version is playable.
   - title: Write every line yourself
-    details: No copying from AI. You will understand the code because you typed it.
+    details: >-
+      No copying from AI. You will understand the code because you
+      typed it.
   - title: Share with friends
-    details: Each version is a real web page. Send anyone the link and they can play.
+    details: >-
+      Each version is a real web page. Send anyone the link and they
+      can play.
 ---

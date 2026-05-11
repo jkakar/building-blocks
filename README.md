@@ -1,11 +1,16 @@
 # building-blocks
 
-Learning materials for a course that teaches programming by building a brick-breaker game, one version at a time.
+Learning materials for a course that teaches programming by building a
+brick-breaker game, one version at a time.
 
 ## Repo layout
 
-- `docs/` — [VitePress](https://vitepress.dev) source for the materials site that learners read.
-- `scaffold/v<n>/` — working reference projects for each game version. Each unit walks learners through creating these files themselves; the copies under `scaffold/` exist so we can verify the code actually runs and so the site can link to a known-good version.
+- `docs/` — [VitePress](https://vitepress.dev) source for the materials
+  site that learners read.
+- `scaffold/v<n>/` — working reference projects for each game version.
+  Each unit walks learners through creating these files themselves; the
+  copies under `scaffold/` exist so we can verify the code actually runs
+  and so the site can link to a known-good version.
 
 ## Working on the materials
 
