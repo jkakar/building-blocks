@@ -132,21 +132,37 @@ check is false (`8 < 8` is false), and the loop stops.
 
 Inside the loop, `const brick = bricks[i];` reads the `i`-th brick
 out of the array. `const` is a new keyword — it's like `let`, but
-it says "this name won't be reassigned." `brick` only exists
-inside this one trip through the loop.
+it says "this name won't be reassigned." Why bother? Because if
+you ever write `brick = somethingElse` by accident later in the
+loop, TypeScript will yell at you instead of letting the bug
+slip through. Use `const` for names that shouldn't change;
+`let` for ones that should. `brick` only exists inside this one
+trip through the loop.
 
 The `if (brick.alive)` check is there so we don't draw bricks that
 have been destroyed. They all start `alive: true`, so right now
 all eight draw.
+
+**Quick check.** What is `bricks[0].x`? What about `bricks[7].y`?
+
+<details><summary>Click for the answer</summary>
+
+`bricks[0].x` is `5` — the `x` field of the *first* brick.
+`bricks[7].y` is `50` — the `y` field of the *eighth* (last)
+brick. The pattern is `array[index].field` — drill down by
+position into the array, then by name into the object.
+
+</details>
 
 **Quick check.** How many times does `ctx.fillRect` get called when
 `draw` runs?
 
 <details><summary>Click for the answer</summary>
 
-Eleven. Once for the ball, once for the paddle, and once for each
-of the 8 bricks. (And `fillText` runs twice for the HUD.) All of
-that happens roughly 60 times per second.
+Ten. Once for the ball, once for the paddle, and once for each of
+the 8 bricks. (`fillText` also runs twice for the HUD lives/score,
+but the question only asked about `fillRect`.) All of that
+happens roughly 60 times per second.
 
 </details>
 
@@ -178,6 +194,18 @@ function updateBricks() {
   }
 }
 ```
+
+Two new operators show up here, both small:
+
+- `!` means "**not**." `!brick.alive` is `true` when
+  `brick.alive` is `false` (and the other way round). It's the
+  yes/no flipper.
+- `continue` inside a loop means "skip the rest of the body and
+  jump to the next iteration." We use it as a quick way to bail
+  out on dead bricks — the alternative would be wrapping the
+  collision check in `if (brick.alive) { ... }`. Both work; using
+  `continue` keeps the collision code from creeping rightward
+  with extra indentation.
 
 Then call it from `update`, right before `updateBall(dt)`:
 
@@ -226,6 +254,14 @@ function restartGame() {
 
 Save. Press space after game over — all the bricks come back.
 
+::: tip Lots of repetition in `bricks`?
+Yes — 8 lines that are nearly the same. A real Brick Breaker has
+many more bricks, and writing them all out by hand would be
+miserable. Unit 8 shows you how to *generate* the brick array
+with a loop, in just a few lines, instead of typing each one.
+For now, hand-typed is fine.
+:::
+
 ## Step 4 — Play with it
 
 - Change brick colors per row: `ctx.fillStyle = "purple";` —
@@ -268,8 +304,13 @@ at zero and increments for each dead brick. If the counter equals
 `bricks.length`, switch `gameState` to `"won"`.
 
 You'll also need a `drawWon` function (modeled after
-`drawGameOver`), and the same space-to-restart code should work
-because `restartGame` already resets `gameState` to `"playing"`.
+`drawGameOver`), and you'll need to *widen* the early-return
+check at the top of `update` — right now it only fires when
+`gameState === "gameOver"`. Either change it to use `||` (which
+you'll meet properly in Unit 8) so it fires on either
+`"gameOver"` or `"won"`, or flip it around to fire when
+`gameState !== "playing"`. Without that change, the ball keeps
+flying around your won screen and space does nothing.
 
 </details>
 
