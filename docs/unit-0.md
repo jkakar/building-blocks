@@ -171,7 +171,7 @@ This is the web page that holds your game.
    <html>
      <head>
        <meta charset="utf-8" />
-       <title>Building Blocks — v0</title>
+       <title>Blocks</title>
        <style>
          body {
            margin: 0;
@@ -226,7 +226,7 @@ This file tells your project what tools it needs.
 
    ```json
    {
-     "name": "building-blocks",
+     "name": "blocks",
      "private": true,
      "type": "module",
      "scripts": {
