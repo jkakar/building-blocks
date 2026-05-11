@@ -319,58 +319,101 @@ is in the `src` folder, and please be strict about catching mistakes."
 ## Step 10 — Create `src/game.ts` (the engine)
 
 This is the **engine**. Think of it like a Lego baseplate: you'll
-build everything on top of it. You won't change it. Later — once
-you're more comfortable — we'll come back and look at how it works.
-For now, just trust it.
+build everything on top of it. You won't change it. Most of it
+uses the same `let`, `function`, `if`, and `===` that you'll
+write in `main.ts`. The comment at the top names the three
+pieces that go beyond what we'll cover.
 
 1. In Zed's file tree, right-click in the `blocks` folder and
    choose **New Folder**. Name it `src`.
 2. Inside `src`, create a new file called `game.ts`. Paste this in:
 
    ```ts
-   // The engine. You won't change this file (for now).
-   // It sets up the canvas, runs your code 60 times per second,
-   // and tracks which keys are being pressed.
+   // The engine. You won't change this file (for now). It sets up
+   // the canvas, runs your code about 60 times per second, and
+   // tracks which keys are being pressed.
+   //
+   // Almost every line uses things you've met or will meet: `let`,
+   // `const`, `function`, `if`, `===`, `return`. A few pieces go
+   // beyond what the course teaches — they're normal parts of
+   // writing JavaScript for a browser:
+   //
+   // - `as HTMLCanvasElement` — a *type assertion*. You're telling
+   //   TypeScript "trust me, this element is a canvas." The browser
+   //   returns a generic element from `document.getElementById`, and
+   //   TypeScript wants you to be explicit when you narrow it.
+   // - `addEventListener` — how the browser tells your code about
+   //   things the user did, like pressing a key. You hand it a
+   //   function and it'll call your function when the event happens.
+   // - `requestAnimationFrame` — how the browser asks you to draw
+   //   the next frame, in time with the screen's refresh (about 60
+   //   times per second).
+   //
+   // You don't need to understand them to use the engine. The names
+   // you'll actually touch from `main.ts` are `start`, `isKeyDown`,
+   // `WIDTH`, `HEIGHT`, and `Ctx`.
 
-   type Ctx = CanvasRenderingContext2D;
-
-   const canvas = document.querySelector("#game") as HTMLCanvasElement | null;
-   if (!canvas) {
-     throw new Error("Could not find <canvas id='game'> in index.html.");
-   }
-   const ctx = canvas.getContext("2d");
-   if (!ctx) {
-     throw new Error("Could not get a 2D drawing context.");
-   }
+   const canvas = document.getElementById("game") as HTMLCanvasElement;
+   const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
    export const WIDTH = canvas.width;
    export const HEIGHT = canvas.height;
+   export type Ctx = CanvasRenderingContext2D;
 
-   const keys = new Set<string>();
-   window.addEventListener("keydown", (e) => keys.add(e.key));
-   window.addEventListener("keyup", (e) => keys.delete(e.key));
+   // Keyboard tracking — one boolean per key the course uses.
 
-   export function isKeyDown(key: string): boolean {
-     return keys.has(key);
+   let leftDown = false;
+   let rightDown = false;
+   let upDown = false;
+   let downDown = false;
+   let spaceDown = false;
+
+   function setKey(name: string, isDown: boolean) {
+     if (name === "ArrowLeft") leftDown = isDown;
+     if (name === "ArrowRight") rightDown = isDown;
+     if (name === "ArrowUp") upDown = isDown;
+     if (name === "ArrowDown") downDown = isDown;
+     if (name === " ") spaceDown = isDown;
    }
 
-   type UpdateFn = (dt: number) => void;
-   type DrawFn = (ctx: Ctx) => void;
+   function onKeyDown(e: KeyboardEvent) {
+     setKey(e.key, true);
+   }
 
-   export function start(update: UpdateFn, draw: DrawFn): void {
+   function onKeyUp(e: KeyboardEvent) {
+     setKey(e.key, false);
+   }
+
+   window.addEventListener("keydown", onKeyDown);
+   window.addEventListener("keyup", onKeyUp);
+
+   export function isKeyDown(key: string): boolean {
+     if (key === "ArrowLeft") return leftDown;
+     if (key === "ArrowRight") return rightDown;
+     if (key === "ArrowUp") return upDown;
+     if (key === "ArrowDown") return downDown;
+     if (key === " ") return spaceDown;
+     return false;
+   }
+
+   // The game loop. Calls your `update` and `draw` ~60 times per
+   // second, with `dt` measured in seconds since the previous frame.
+
+   export function start(
+     update: (dt: number) => void,
+     draw: (ctx: Ctx) => void,
+   ): void {
      let last = performance.now();
      function loop(now: number) {
        const dt = (now - last) / 1000;
        last = now;
        update(dt);
-       ctx!.clearRect(0, 0, WIDTH, HEIGHT);
-       draw(ctx!);
+       ctx.clearRect(0, 0, WIDTH, HEIGHT);
+       draw(ctx);
        requestAnimationFrame(loop);
      }
      requestAnimationFrame(loop);
    }
-
-   export type { Ctx };
    ```
 
 3. Save.
@@ -380,19 +423,15 @@ What this engine gives you (you'll use these in `main.ts`):
 - `start(update, draw)` — kicks the game off. You hand it two of your
   functions, and it calls them 60 times per second.
 - `isKeyDown(key)` — returns `true` if the given key is being held
-  down right now.
+  down right now. Knows about the arrow keys and the space bar.
 - `WIDTH` and `HEIGHT` — the size of the canvas (800 and 600).
 - `Ctx` — a *type* for the thing you draw with. TypeScript uses
   types to catch mistakes; you don't need to know more than that
   for now.
 
-You don't need to understand most of what's in `game.ts`.
-Things like `as HTMLCanvasElement | null`, `Set<string>`, the `!`
-in `ctx!`, `throw new Error(...)`, `requestAnimationFrame`,
-`addEventListener` — these are TypeScript being careful or the
-engine doing bookkeeping. None of them are game logic. You'll
-meet some of them later; others you may never need to. Either
-way, the engine works.
+Read through `game.ts` once. Don't worry if not every line lands
+— the comment at the top tells you what to focus on and what to
+let slide.
 
 ## Step 11 — Create `src/main.ts` (your game)
 

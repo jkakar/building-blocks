@@ -107,21 +107,29 @@ features and they'll look unfamiliar. That's fine — they're a
 
 ## The one honest caveat: the engine
 
-In Unit 0 you paste a ~30-line file called `game.ts` and the
-course tells you to trust it. That file uses things from the
-"doesn't teach" list — `Set<string>`, arrow functions,
-`as HTMLCanvasElement | null`, `throw new Error`,
-`requestAnimationFrame`, `addEventListener`. You're *exposed* to
-these on screen for a few minutes but never asked to write,
-modify, or even understand them.
+In Unit 0 you paste a ~80-line file called `game.ts` and the
+course tells you to trust it. Almost every line in it uses the
+same primitives you'll write in `main.ts` — `let`, `const`,
+`function`, `if`, `return`, `===`. **Three** named features go
+beyond what the course teaches, all marked at the top of the
+file with a one-paragraph explanation each:
 
-The reason: the engine handles the bookkeeping (running your
-`update` and `draw` at the right cadence, tracking which keys are
-held) so your game code can stay focused on the game. When you're
-ready, you can come back and read `game.ts` from top to bottom —
-and you'll find that the same patterns from the course
-(functions, `let` and `const`, arrays, `if`) are doing the
-heavy lifting under all the unfamiliar syntax.
+- **Type assertions** (`as HTMLCanvasElement`) — telling
+  TypeScript what kind of value you have.
+- **`addEventListener`** — how the browser tells your code about
+  things the user did, like pressing a key.
+- **`requestAnimationFrame`** — how the browser asks you to draw
+  the next frame, ~60 times per second.
+
+You see them on screen but never have to write or modify them.
+
+The reason for the split: the engine handles bookkeeping
+(running your `update` and `draw` at the right cadence, tracking
+which keys are held) so your game code can stay focused on the
+game. When you're ready, you can read `game.ts` end-to-end —
+and you'll find the same patterns from the course
+(`function`, `let`/`const`, `if`, `return`) carrying most of the
+weight.
 
 ## Where to go from here
 
