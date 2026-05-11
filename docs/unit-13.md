@@ -104,6 +104,15 @@ Walking through what's new:
 
 Save. The bricks now match whatever you wrote in `level.ts`.
 
+::: tip Where did the tough bricks go?
+You may notice that the top two rows are no longer 2-hit bricks
+the way they were in Unit 9. That's because the new `buildBricks`
+always pushes `hp: 1` — the row math that gave the top rows extra
+hp is gone. We didn't lose anything by accident; we *moved* the
+decision. Toughness now belongs in the level file, not the code.
+Challenge 1 is where you wire it back up.
+:::
+
 **Quick check.** What happens if you put a `?` somewhere in the
 level string?
 
@@ -212,7 +221,10 @@ In your level file, use `T` instead of `#` to mean "tough brick"
 
 <details><summary>Hint</summary>
 
-Add a second `if`:
+Add a second `if`. (If your `drawBricks` from Unit 9 already
+branches on `hp >= 2` to pick a darker color, you don't need to
+change `drawBricks` at all — it'll pick up the tough color
+automatically.)
 
 ```ts
 if (ch === "#") {
