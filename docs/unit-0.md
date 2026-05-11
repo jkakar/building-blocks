@@ -13,47 +13,93 @@ Take your time. If something breaks, scroll to
 
 ## What you're going to install
 
-- **Node.js** — a tool that lets your computer run JavaScript code.
+- **Homebrew** — a tool that installs other programs for you, from the
+  terminal. Once you have it, getting anything new is a one-line
+  command.
+- **Node.js** — lets your computer run JavaScript code.
 - **Zed** — an app for writing code. Like a word processor, but for
   programs.
 
-Both are free. Both run on Mac.
+Everything is free. Everything runs on Mac.
 
-## Step 1 — Install Node.js
+## Step 1 — Install Homebrew
 
-1. Go to [nodejs.org](https://nodejs.org).
-2. Click the big download button labelled **LTS**. (LTS means "the
-   steady, well-tested version.")
-3. Open the file that downloaded. Follow the installer.
-4. Open the **Terminal** app on your Mac to check it worked: press
-   `cmd + space`, type `terminal`, press enter.
-5. In the Terminal window, type this and press enter:
+Open the **Terminal** app on your Mac: press `cmd + space`, type
+`terminal`, press enter.
 
-   ```sh
-   node --version
-   ```
+First, check if Homebrew is already there. Type this and press enter:
 
-   You should see something like `v22.10.0`. The exact number might be
-   different — that's fine.
+```sh
+brew --version
+```
 
-If you see `command not found`, close the Terminal window, open a new
-one, and try again. Sometimes Terminal needs a fresh start to notice
-new programs.
+If you see something like `Homebrew 4.4.0`, great — skip ahead to
+Step 2.
 
-## Step 2 — Install Zed
+If you see `command not found: brew`, install it. Copy and paste this
+command into the terminal, then press enter:
 
-1. Go to [zed.dev](https://zed.dev).
-2. Click the download button for Mac.
-3. Open the file. Drag the Zed icon into the Applications folder.
-4. Open Zed (from Applications, or `cmd + space`, type `zed`).
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+It will ask for your password — type it in. (You won't see the
+characters appear; that's normal.) Then it starts downloading and
+installing. This can take **5 to 20 minutes** the first time. Lots of
+text scrolls by. Don't worry about understanding it.
+
+When it finishes, scroll up in the terminal and look for a section
+labelled **Next steps:**. It will show two or three commands. **Copy
+and run each one** in your terminal. They make `brew` available so
+you can use it from any terminal window.
+
+To check it worked, close your terminal window, open a new one, and
+type:
+
+```sh
+brew --version
+```
+
+You should see a version number. If you still see `command not
+found`, ask a grown-up — something didn't get added to your PATH.
+
+## Step 2 — Install Node.js
+
+In your terminal, type:
+
+```sh
+brew install node
+```
+
+Wait for it to finish (a minute or two). To check it worked:
+
+```sh
+node --version
+```
+
+You should see something like `v22.10.0`. The exact number might be
+different — that's fine.
+
+## Step 3 — Install Zed
+
+In your terminal, type:
+
+```sh
+brew install --cask zed
+```
+
+The `--cask` part tells Homebrew this is a Mac app, not a
+command-line tool. When it's done, open Zed from your Applications
+folder (or `cmd + space`, type `zed`).
 
 The first time you open Zed it shows a mostly empty screen with a
 "Welcome" tab. That's normal. Close the Welcome tab if you like.
 
-## Step 3 — Make a workshop folder
+## Step 4 — Make a workshop folder
 
-You need a folder to keep all your game projects in. Back in Terminal,
-type these commands **one at a time**, pressing enter after each:
+You need a folder to keep all your game projects in. Back in
+Terminal, type these commands **one at a time**, pressing enter after
+each:
 
 ```sh
 mkdir ~/building-blocks
@@ -78,7 +124,7 @@ You now have:
 - `~/building-blocks/v0-paddle` — the folder for your **first** version,
   which is the one you're building right now.
 
-## Step 4 — Open the folder in Zed
+## Step 5 — Open the folder in Zed
 
 In Zed:
 
@@ -88,10 +134,10 @@ In Zed:
 3. Click **Open**.
 
 Zed will now show an empty file tree on the left (because the folder
-has nothing in it yet) and a big empty area on the right. You're ready
-to add files.
+has nothing in it yet) and a big empty area on the right. You're
+ready to add files.
 
-## Step 5 — Create `index.html`
+## Step 6 — Create `index.html`
 
 This is the web page that holds your game.
 
@@ -141,7 +187,7 @@ What this file is doing:
 - The `<script>` tag says "load my code from `/src/main.ts`." You
   haven't written that file yet. You will.
 
-## Step 6 — Create `package.json`
+## Step 7 — Create `package.json`
 
 This file tells your project what tools it needs.
 
@@ -178,11 +224,13 @@ What this file is doing:
   - **Vite** — runs a tiny web server on your computer and reloads the
     page when you save changes.
 
-## Step 7 — Install the tools
+## Step 8 — Install the project's tools
 
-Node.js needs to actually download Vite and TypeScript. In Zed, open
-the built-in terminal: **View** menu → **Terminal**, or press
-``ctrl + ` `` (that's the key with `~` on it, above Tab).
+Vite and TypeScript are tools that this *project* needs (Homebrew
+installs programs for your whole computer; `npm` installs libraries
+just for one project). In Zed, open the built-in terminal: **View**
+menu → **Terminal**, or press ``ctrl + ` `` (that's the key with `~`
+on it, above Tab).
 
 A terminal panel opens at the bottom of Zed. Type:
 
@@ -198,7 +246,7 @@ where Node.js stores all the tool code. You won't edit anything in
 there. (Heads up: it's *huge*, with thousands of files. Don't be
 alarmed.)
 
-## Step 8 — Create `tsconfig.json`
+## Step 9 — Create `tsconfig.json`
 
 This tells TypeScript what kind of code you're writing.
 
@@ -225,7 +273,7 @@ This tells TypeScript what kind of code you're writing.
 You don't need to understand every line. The short version: "the code
 is in the `src` folder, and please be strict about catching mistakes."
 
-## Step 9 — Create `src/game.ts` (the engine)
+## Step 10 — Create `src/game.ts` (the engine)
 
 This is the **engine**. Think of it like a Lego baseplate: you'll
 build everything on top of it. You won't change it. Later — once
@@ -298,7 +346,7 @@ You don't need to understand `requestAnimationFrame` or
 `addEventListener` yet. The engine is doing the bookkeeping so you
 don't have to.
 
-## Step 10 — Create `src/main.ts` (your game)
+## Step 11 — Create `src/main.ts` (your game)
 
 **This** is the file where your game lives. From now on, this is where
 you'll spend almost all of your time.
@@ -350,9 +398,9 @@ opposite of math class, where bigger `y` means *up*.) So `(100, 100)`
 means 100 pixels right, 100 pixels down.
 :::
 
-## Step 11 — Start the dev server
+## Step 12 — Start the dev server
 
-In Zed's terminal (the bottom panel from Step 7), type:
+In Zed's terminal (the bottom panel from Step 8), type:
 
 ```sh
 npm run dev
@@ -372,7 +420,7 @@ Chrome, Firefox.
 **You should see a black rectangle with a small red square inside it.**
 That's your game.
 
-## Step 12 — Change something
+## Step 13 — Change something
 
 In Zed, open `main.ts`. Change `"red"` to `"blue"`. Save (`cmd + S`).
 
@@ -404,11 +452,17 @@ Next time: open Zed, open the same folder, open the terminal, type
 
 ## Troubleshooting
 
+**`command not found: brew`** (after installing Homebrew)
+The installer didn't add Homebrew to your PATH. Scroll up in the
+terminal where you ran the installer and find the **Next steps:**
+section. Run the two or three commands it lists. Then close the
+terminal, open a new one, and try `brew --version` again.
+
 **`command not found: node`**
-Node.js isn't installed correctly, or your terminal hasn't picked it
-up yet. Close all terminal windows, open a fresh one, try again. If it
-still doesn't work, re-run the installer from
-[nodejs.org](https://nodejs.org).
+Either Node.js didn't install, or your terminal hasn't picked it up
+yet. Close all terminal windows, open a fresh one, try
+`brew install node` again. If `brew` itself is missing, see the
+troubleshooting tip above.
 
 **`Port 5173 is already in use`**
 Another project is running on that port. Either find it and stop it,
@@ -434,7 +488,7 @@ Check that your canvas in `index.html` has `id="game"` (not `Game` or
 
 ## What you just did
 
-- Installed Node.js and Zed.
+- Installed Homebrew, then used it to install Node.js and Zed.
 - Made a folder for your project.
 - Created five files: `index.html`, `package.json`, `tsconfig.json`,
   `src/game.ts`, `src/main.ts`. (`npm install` also created
@@ -445,6 +499,8 @@ Check that your canvas in `index.html` has `id="game"` (not `Game` or
 
 A few new words you'll hear a lot:
 
+- **Homebrew** — installs whole programs onto your Mac.
+- **npm** — installs libraries inside a single project.
 - **Directory** / **folder** — same thing.
 - **Terminal** — the place you type commands.
 - **Library** — code other people wrote that you can use.
