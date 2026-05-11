@@ -168,6 +168,16 @@ import { start, isKeyDown, Ctx } from "./game";
 
 (We added `isKeyDown` between `start` and `Ctx`.)
 
+::: tip Vocab: import
+That **`import`** line is how `main.ts` borrows things from another
+file. Each file in your project is its own little world, and
+`import` is how you reach into another file and pull names out of
+it. `./game` means "the file called `game.ts` next to me." The
+names in `{ ... }` are the things you're borrowing — once they're
+imported, you can use them in `main.ts` as if they were defined
+here.
+:::
+
 Then change `update`:
 
 ```ts
@@ -234,48 +244,56 @@ This is the loop again: change a number, save, watch.
 
 ## On your own
 
+The unit is about to end, but there's still real code for you to
+write. Two challenges. Try each one *before* reading its hint — and
+no, there's no "show me the answer" at the bottom. The whole point
+is the wrestling.
+
+### Challenge 1 — Up and down
+
 The square moves left and right, but not up or down. The arrow keys
-for those are called `"ArrowUp"` and `"ArrowDown"`.
+for up and down are called `"ArrowUp"` and `"ArrowDown"`.
 
-**Challenge.** Add up and down movement. When you're done, the
-square should be controllable in all four directions.
+Add code so the square moves in all four directions.
 
-<details><summary>Hint — after you've tried</summary>
+<details><summary>Hint</summary>
 
-You need two more `if` blocks in `update`, just like the ones for
-left and right, but using `"ArrowUp"` / `"ArrowDown"` and changing
-`y` instead of `x`.
+You need two more `if` blocks in `update`, like the ones for left
+and right but using `"ArrowUp"` / `"ArrowDown"` and changing `y`
+instead of `x`.
 
 Remember from Unit 0: on the canvas, going *down* means `y` gets
-*bigger*. So `"ArrowDown"` should *add* to `y`, and `"ArrowUp"`
-should *subtract* from `y`.
+*bigger*. So which arrow should *add* to `y`, and which should
+*subtract*?
 
 </details>
 
-<details><summary>Show the full answer</summary>
+### Challenge 2 — Stop at the edges
 
-```ts
-function update(dt: number) {
-  if (isKeyDown("ArrowLeft")) {
-    x = x - 200 * dt;
-  }
-  if (isKeyDown("ArrowRight")) {
-    x = x + 200 * dt;
-  }
-  if (isKeyDown("ArrowUp")) {
-    y = y - 200 * dt;
-  }
-  if (isKeyDown("ArrowDown")) {
-    y = y + 200 * dt;
-  }
-}
-```
+If you push the square far enough, it leaves the canvas and
+disappears. Make it stop at the edges instead. When the square
+hits a wall, it should sit against the wall until you push the
+other way.
+
+<details><summary>Hint</summary>
+
+A few things to figure out:
+
+- The canvas is **800 wide and 600 tall**. The square is **30
+  wide and 30 tall**.
+- `ctx.fillRect(x, y, 30, 30)` draws the square's *top-left
+  corner* at `(x, y)`. So when `x` is `0`, the square is touching
+  the left edge. When does the square's *right* side touch the
+  *right* edge? Work the number out before writing any code.
+- One approach: *after* `update` changes `x` and `y`, add some
+  `if` checks that *fix* `x` or `y` if they've gone too far.
+  There are four edges to think about.
 
 </details>
 
-If you got it without the hint, great. If the hint or full answer
-made it click, also great — you've still done the work of
-understanding what each line does.
+If a hint doesn't unstick you, ask a grown-up to look at it with
+you. The point of this part is the wrestling — if I wrote the
+answer here, you'd type it and miss the part where you learn.
 
 ## Troubleshooting
 
@@ -314,6 +332,8 @@ A few new words:
 - **`if`** — runs a block of code only when a condition is true.
 - **`dt`** — short for "delta time" — the seconds since the last
   `update` ran.
+- **Import** — a line that pulls names (functions, types, etc.)
+  from another file into this one so you can use them.
 
 ## What's next
 

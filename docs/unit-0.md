@@ -428,6 +428,15 @@ What this file is doing:
 - `start(update, draw);` — hand your two functions to the engine. The
   engine takes it from there.
 
+::: tip Vocab: function
+You've just written two **functions** — `update` and `draw`. A
+*function* is a named chunk of code that runs when something
+*calls* it. You don't call `update` or `draw` yourself; the engine
+calls them for you (`update` 60 times per second, `draw` right
+after). The last line, `start(update, draw);`, hands your two
+functions to the engine.
+:::
+
 ::: tip Canvas coordinates
 On the canvas, the point `(0, 0)` is at the **top-left** corner. Going
 right makes `x` bigger. Going **down** makes `y` bigger. (That's the
@@ -591,6 +600,9 @@ A few new words you'll hear a lot:
   page.
 - **Hot reload** — the dev server updating your page automatically
   when you save.
+- **Function** — a named chunk of code that runs when something
+  *calls* it. `update` and `draw` are functions; the engine calls
+  them for you.
 
 ## What's next
 
