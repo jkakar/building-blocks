@@ -1,6 +1,6 @@
 # Unit 1 — An event bus
 
-This unit is the one where you meet the idea Track 2 is built
+This unit is the one where you meet the idea Course 2 is built
 around. You'll write a tiny piece of code called an **event bus**
 — a place where one part of your program can *announce* that
 something happened, and another part can *listen* and react.
@@ -21,7 +21,7 @@ code will bump the score. Same gameplay. Different shape.
 
 ## Step 1 — Make a new project folder
 
-You'll keep your Track 1 game where it is. Track 2 lives in its
+You'll keep your Course 1 game where it is. Course 2 lives in its
 own folder so nothing collides.
 
 Open Zed's terminal (or your Mac's Terminal). Run these one at a
@@ -32,10 +32,10 @@ mkdir ~/blocks-events
 cd ~/blocks-events
 ```
 
-You need the same four supporting files Track 1 had — the engine
+You need the same four supporting files Course 1 had — the engine
 (`game.ts`), the web page (`index.html`), and the two config
 files (`package.json`, `tsconfig.json`). Rather than retyping
-them, copy them from your Track 1 project:
+them, copy them from your Course 1 project:
 
 ```sh
 cp ~/blocks/index.html ~/blocks-events/
@@ -51,17 +51,17 @@ Then install the tools:
 npm install
 ```
 
-(If anything here feels rusty, [Unit 0](/unit-0) has the full
+(If anything here feels rusty, [Unit 0](/procedural/unit-0) has the full
 walk-through.)
 
-Now create `src/main.ts`. We're starting from the **end of Track
+Now create `src/main.ts`. We're starting from the **end of Course
 1's Unit 6** — the simple paddle-and-ball game with lives, score,
 and sound, but no bricks yet. Bricks add a lot of moving parts;
-we'll keep them out for this track so you can focus on the new
+we'll keep them out for this course so you can focus on the new
 idea.
 
 Open `~/blocks-events/src/main.ts` in Zed and type in this code.
-It's the post-Unit-6 game from Track 1:
+It's the post-Unit-6 game from Course 1:
 
 ```ts
 import { start, isKeyDown, Ctx } from "./game";
@@ -298,7 +298,7 @@ Then two functions you'll actually call:
 When `emit` calls each `handler`, that handler is what
 programmers call a **callback** — a function that *you* wrote and
 handed to someone else, so they can *call* it *back* later. You
-already used callbacks in Track 1 without naming them: every
+already used callbacks in Course 1 without naming them: every
 time you call `start(update, draw)`, the engine takes your
 `update` and `draw` functions and calls them every frame. They
 are your callbacks. The handlers you'll hand to `on` are
@@ -428,7 +428,7 @@ doesn't know who's listening, and the subscribers don't know
 who's announcing. They only know the *name* of the event.
 
 It's one of the oldest tricks for keeping a growing program
-manageable. By the end of Track 2 you'll see why.
+manageable. By the end of Course 2 you'll see why.
 :::
 
 ## Quick check
@@ -552,13 +552,13 @@ inside the curly braces.
 
 **The game stops at "Game Over" forever after one loss.**
 That's not new in this unit — the game was already restartable
-with the space bar from Track 1. Click the browser window first
+with the space bar from Course 1. Click the browser window first
 so it gets your key presses, then press space.
 
 ## What you just did
 
 - Made a new project folder so you can build a second version of
-  the game without disturbing your Track 1 one.
+  the game without disturbing your Course 1 one.
 - Wrote `events.ts` — a tiny event bus with `on` and `emit`.
 - Replaced one direct action (bumping the score) with an
   **emit**, and put the action behind a **subscriber**. Same
@@ -581,7 +581,7 @@ New words:
 
 ## What's next
 
-In [Unit 2](/track-2/unit-2) you'll convert the rest of the ball
+In [Unit 2](/event-driven/unit-2) you'll convert the rest of the ball
 events — the three wall bounces and the ball-lost-the-bottom
 case. The interesting bit: once those are events too, all four
 "make a bonk sound" places collapse into a single subscriber.

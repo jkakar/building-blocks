@@ -1,7 +1,11 @@
 # building-blocks
 
-Learning materials for a course that teaches programming by building a
-brick-breaker game, one version at a time.
+Learning materials for a series of self-paced courses that teach
+programming by building games. The first course (Procedural) teaches
+a 9-12-year-old to build a brick-breaker from scratch over 14 units.
+Five follow-on courses rebuild the same game (or a different game)
+through a different paradigm: event-driven, object-oriented,
+functional, reactive, and entity-component-system.
 
 **Live site:** https://jkakar.github.io/building-blocks/
 
@@ -9,9 +13,12 @@ brick-breaker game, one version at a time.
 
 - `docs/` — [VitePress](https://vitepress.dev) source for the materials
   site that learners read.
-- `scaffold/v0/` — a runnable reference project for the game (v0 state).
-  Each unit walks learners through creating these files themselves; the
-  copy under `scaffold/` exists so we can verify the code actually runs.
+  - `docs/procedural/` — Course 1 (14 units).
+  - `docs/event-driven/`, `object-oriented/`, `functional/`,
+    `reactive/`, `entity-component-system/` — Courses 2–6 (4 units each).
+- `scaffold/<course>/` — runnable reference project for each course's
+  end-state game. Each unit walks learners through creating these
+  files themselves; the scaffold lets us verify the code actually runs.
 
 ## Working on the materials
 
@@ -24,24 +31,39 @@ npm run docs:build    # build the static site to docs/.vitepress/dist
 ## Trying a scaffold
 
 ```sh
-cd scaffold/v0
+cd scaffold/procedural  # or any other course slug
 npm install
 npm run dev
 ```
 
-Open the URL Vite prints. You should see a red square on a black canvas.
+Open the URL Vite prints.
 
 ---
 
-# Curriculum roadmap
+# Curriculum overview
+
+| Course | Paradigm | Game | Units |
+|--------|----------|------|-------|
+| 1 | Procedural | brick-breaker (built from scratch) | 14 |
+| 2 | Event-driven | brick-breaker rewrite with pub/sub | 4 |
+| 3 | Object-oriented | brick-breaker rewrite with classes | 4 |
+| 4 | Functional | brick-breaker rewrite with immutable state | 4 |
+| 5 | Reactive | clicker (fresh game with signals) | 4 |
+| 6 | Entity-Component-System | asteroid-dodge (fresh game with ECS) | 4 |
+
+Course 1 is the trunk; everyone takes it. Courses 2–6 are optional
+follow-ons in any order, though they roughly increase in cognitive
+complexity (event-driven is the smallest leap, ECS the largest).
+
+This document is for the curriculum author / maintainer. End learners
+shouldn't need it; the site is structured to walk them through one
+unit at a time, one course at a time.
+
+# Course 1 — Procedural roadmap
 
 The planned arc of units after Unit 0. Intentionally flexible — each
 unit's exact shape firms up when we build it, informed by how the
 previous units played out with real learners.
-
-This document is for the curriculum author / maintainer. End learners
-shouldn't need it; the site is structured to walk them through one
-unit at a time.
 
 ## Conventions
 
@@ -196,9 +218,9 @@ code.
 
 ## Future ideas
 
-Units we might add, in no particular order. We'll fold them in if a
-unit feels short, or queue them after Unit 14, or skip them if the
-kids lose interest.
+Units we might add to Course 1, in no particular order. We'll fold
+them in if a unit feels short, or queue them after Unit 14, or skip
+them if the kids lose interest.
 
 - **Title screen and menu.** "Press space to start." Builds on the
   state machine from Unit 4. Could slot in between Unit 4 and Unit 5.
@@ -212,6 +234,7 @@ kids lose interest.
 
 ## A note on timing
 
-At 30–60 minutes per unit plus iteration sessions, this is
-comfortably a multi-month curriculum. There is no rush. The right
-pacing is the pacing the learner enjoys.
+At 30–60 minutes per unit plus iteration sessions, Course 1 is
+comfortably a multi-month commitment. Courses 2–6 are each shorter
+(4 units) but assume the learner has Course 1 behind them. There is
+no rush. The right pacing is the pacing the learner enjoys.

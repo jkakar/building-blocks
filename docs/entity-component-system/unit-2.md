@@ -312,7 +312,7 @@ for (const id in velocities) {
 Yes — it'd still work. But it'd be slower and conceptually
 backwards.
 
-There's one entity in `players` and (later in this track) up to
+There's one entity in `players` and (later in this course) up to
 200 in `velocities`. Looping the bigger bucket and filtering down
 to the player means doing 200 lookups to find one row, every
 frame, forever.
@@ -371,7 +371,7 @@ sets each one's velocity from the same keys.
 To split them — left-stick versus right-stick, basically —
 you'd need a second marker (`type Controlled = "player1" |
 "player2"`, or two separate marker buckets). That's outside
-this track, but the shape is there: more component types let
+this course, but the shape is there: more component types let
 you carve the world into finer slices.
 
 Take the second player back out when you're done.
@@ -456,7 +456,7 @@ New words:
 
 ## What's next
 
-In [Unit 3](/track-6/unit-3) the canvas fills up. You'll write a
+In [Unit 3](/entity-component-system/unit-3) the canvas fills up. You'll write a
 **spawner system** that drops a new asteroid every half-second,
 and a **cleanup system** that destroys asteroids that fall off
 the bottom. The Movement and Render systems you already have

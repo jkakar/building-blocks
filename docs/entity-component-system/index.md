@@ -1,18 +1,18 @@
-# Track 6 — Entity-Component-System
+# Course 6 — Entity-Component-System
 
-Five tracks. Five shapes for the same brick-breaker. Loose
+Five courses. Five shapes for the same brick-breaker. Loose
 variables, an event bus, classes, immutable state objects,
 signals. Each one taught you a different angle on the same
 question: *where does the game's information live, and who's
 allowed to change it?*
 
-Track 6 changes the question. Instead of "how do we shape one
+Course 6 changes the question. Instead of "how do we shape one
 ball, one paddle, a row of bricks," we ask: *what if the game
 had two hundred things in it at once?*
 
 A brick-breaker doesn't really need an answer to that. A ball, a
 paddle, a few dozen bricks — the shapes you already know handle
-it fine. So Track 6 doesn't rebuild the brick-breaker. It builds
+it fine. So Course 6 doesn't rebuild the brick-breaker. It builds
 a different game where two hundred things on screen *is* the
 point: an **asteroid-dodge**. A green ship at the bottom of the
 canvas. A field of brown rocks tumbling down from the top. Move
@@ -26,17 +26,17 @@ the number of things in the world gets large. Unity has it. Bevy
 of an ECS for free.
 
 The trick is to take everything you know about objects and pull
-them *apart*. In Track 3 you bundled "the ball's data" and "the
+them *apart*. In Course 3 you bundled "the ball's data" and "the
 ball's methods" into one `Ball` class. ECS does the opposite:
 data goes in one place, behavior goes in another, and they meet
 at a single ID.
 
-## Who this track is for
+## Who this course is for
 
-You finished Track 1. Anything else is a bonus. Track 3
+You finished Course 1. Anything else is a bonus. Course 3
 (objects) is the most useful contrast — ECS is what you get when
 you delete the methods, scatter the fields, and stop using
-inheritance. Track 4 (state-as-data) shares the "data over
+inheritance. Course 4 (state-as-data) shares the "data over
 everything" feeling, though ECS happily mutates that data in
 place.
 
@@ -73,11 +73,11 @@ Under the hood, three new words:
 - Why ECS *scales* — adding a 200th asteroid is one line, and
   every system handles it without changes.
 
-## What you keep from Track 1
+## What you keep from Course 1
 
 The engine (`game.ts`) doesn't change. `index.html`,
 `package.json`, and `tsconfig.json` don't change. Your earlier
 projects still work — leave them alone and start fresh in a new
 folder.
 
-Ready? Open [Unit 1 — Entities, components, systems](/track-6/unit-1).
+Ready? Open [Unit 1 — Entities, components, systems](/entity-component-system/unit-1).

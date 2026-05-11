@@ -1,8 +1,8 @@
 # Unit 4 — Multi-ball
 
-This is the unit that makes Track 3 worth it.
+This is the unit that makes Course 3 worth it.
 
-You're going to add a feature that, in Track 1, would have meant
+You're going to add a feature that, in Course 1, would have meant
 copying eight variables and duplicating dozens of lines of
 collision and bounce code: a **multi-ball** power-up. Every five
 paddle hits, a new ball spawns. Five balls bouncing around at
@@ -24,7 +24,7 @@ trivial.
 - Why "the OO version pays off when you scale up" is *not*
   marketing — you'll feel the difference between writing the
   multi-ball code now versus what it would have taken in
-  Track 1.
+  Course 1.
 
 ## Step 1 — Pick up where you left off
 
@@ -114,7 +114,7 @@ You may have already used `for (const b of bricks)` in Units 2
 and 3 — it's the modern way to walk through every item in an
 array.
 
-- The Track 1 style: `for (let i = 0; i < arr.length; i = i +
+- The Course 1 style: `for (let i = 0; i < arr.length; i = i +
   1) { const item = arr[i]; ... }`. You write the bookkeeping.
 - The `for ... of` style: `for (const item of arr) { ... }`.
   No counter, no `arr[i]`, no `i < arr.length`. You just get
@@ -317,7 +317,7 @@ versus one. The loop took care of it.
 
 ## Quick check
 
-In Track 1's Unit 2 there's a challenge: "add a second ball."
+In Course 1's Unit 2 there's a challenge: "add a second ball."
 Take a minute and imagine the diff for it. How many variables
 would you copy? How many lines of `updateBall` would you
 duplicate? How many places in `drawBall`?
@@ -478,22 +478,22 @@ New words:
 
 ## What's next
 
-You've finished Track 3. Stop and look at what you built:
+You've finished Course 3. Stop and look at what you built:
 
-- The same paddle-and-ball game you wrote in Track 1, restructured
+- The same paddle-and-ball game you wrote in Course 1, restructured
   around classes (Paddle, Ball, Brick).
 - A real use of inheritance — `ToughBrick extends Brick` —
   inside a polymorphic collision loop.
 - A multi-ball power-up: five Ball instances dancing across the
   canvas, all from one `Ball` class and one array.
 
-You've now written this game three ways: procedural (Track 1),
-event-driven (Track 2), object-oriented (Track 3). Each track
+You've now written this game three ways: procedural (Course 1),
+event-driven (Course 2), object-oriented (Course 3). Each course
 emphasized a different way of organizing code. None of them is
 the "right" one. Programmers use all three, sometimes in the
 same project, depending on which fits the problem.
 
-Track 4 takes the same game and rewrites it again — this time in
+Course 4 takes the same game and rewrites it again — this time in
 a **functional** style, where the whole game state lives in one
 big value that gets *replaced* every frame instead of mutated.
 You'll see why that opens the door to features that feel like

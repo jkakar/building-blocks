@@ -486,9 +486,9 @@ New words:
 
 ## What's next
 
-[Unit 4](/track-3/unit-4) brings the whole track home with a
+[Unit 4](/object-oriented/unit-4) brings the whole course home with a
 feature that's hard to imagine writing *without* classes:
 **multi-ball**. Every five paddle hits, a new ball spawns. Five
-balls bouncing around at once. The trick: in Track 1, adding a
+balls bouncing around at once. The trick: in Course 1, adding a
 second ball was eight lines of duplication. With a `Ball` class
 and an array of balls, it's one line: `balls.push(new Ball(...))`.

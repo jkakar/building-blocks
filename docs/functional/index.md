@@ -1,10 +1,10 @@
-# Track 4 — Functional
+# Course 4 — Functional
 
-You finished Track 1. Maybe Track 2, maybe Track 3. The same game
+You finished Course 1. Maybe Course 2, maybe Course 3. The same game
 written two or three different ways. Time for one more — and this
 one buys you something none of the others did.
 
-Open `main.ts` from Track 1's Unit 6 and look at the top:
+Open `main.ts` from Course 1's Unit 6 and look at the top:
 
 ```ts
 let x = 100;
@@ -21,7 +21,7 @@ over and over. `x = x + vx * dt;` reads `x`, computes a new value,
 writes it back to the same `x`. Same with `vy` when the ball
 bounces. Same with `score`, `lives`, everything.
 
-In Track 4 you'll rewrite the same paddle-and-ball game so the
+In Course 4 you'll rewrite the same paddle-and-ball game so the
 whole game's information lives in **one object** called `state` —
 and every frame, instead of poking at fields, you build a brand
 new state from the old one. The old one stays untouched.
@@ -37,17 +37,17 @@ there, because it's a plain object you can save to the browser.
 You don't have to write *anything* extra to make the game record
 itself. It does that for free, because you stopped mutating.
 
-## Who this track is for
+## Who this course is for
 
-You finished Track 1. (Track 2 or 3 is helpful but optional.)
+You finished Course 1. (Course 2 or 3 is helpful but optional.)
 You're comfortable with `let`, `function`, `if`, arrays, and
 writing your own helpers.
 
 ## What you'll build
 
-The paddle-and-ball game from Track 1's Unit 6 — paddle, bouncing
+The paddle-and-ball game from Course 1's Unit 6 — paddle, bouncing
 ball, lives, score, sound, Game Over — plus two things only this
-track has:
+course has:
 
 - Hold **R** to *rewind* the last few seconds of play.
 - After Game Over, press **P** to *replay* what just happened.
@@ -73,11 +73,11 @@ Under the hood:
   straight into the next.
 - Why frozen state makes **time travel** cheap.
 
-## What you keep from Track 1
+## What you keep from Course 1
 
 The engine (`game.ts`) doesn't change. `index.html`,
-`package.json`, and `tsconfig.json` don't change. Your Track 1
+`package.json`, and `tsconfig.json` don't change. Your Course 1
 project still works — leave it alone and start fresh in a new
 folder.
 
-Ready? Open [Unit 1 — State as data](/track-4/unit-1).
+Ready? Open [Unit 1 — State as data](/functional/unit-1).

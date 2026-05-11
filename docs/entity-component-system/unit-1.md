@@ -2,7 +2,7 @@
 
 Before any code, the picture.
 
-In Track 3 you wrote a `Ball` class. It bundled four numbers
+In Course 3 you wrote a `Ball` class. It bundled four numbers
 (`x`, `y`, `vx`, `vy`) with two functions (`update`, `draw`).
 The data and the behavior lived inside the same `{ }`.
 
@@ -38,7 +38,7 @@ across the screen.
 
 ## Step 1 — Make a new project folder
 
-Track 6 lives in its own folder. Your earlier projects stay
+Course 6 lives in its own folder. Your earlier projects stay
 where they are.
 
 Open Zed's terminal. Run these one at a time:
@@ -48,7 +48,7 @@ mkdir ~/blocks-ecs
 cd ~/blocks-ecs
 ```
 
-Copy the same four supporting files Track 1 had:
+Copy the same four supporting files Course 1 had:
 
 ```sh
 cp ~/blocks/index.html ~/blocks-ecs/
@@ -64,7 +64,7 @@ Install the tools:
 npm install
 ```
 
-(If anything feels rusty, [Unit 0](/unit-0) has the full
+(If anything feels rusty, [Unit 0](/procedural/unit-0) has the full
 walk-through.)
 
 You won't write `main.ts` from a giant block this time. We'll
@@ -95,7 +95,7 @@ they describe the contents of a value without creating one.
 The last two lines create the buckets. `{ [id: number]: Position
 }` is an **index-signature object** — a plain object whose keys
 are numbers and whose values are Positions. You first saw this
-shape in Track 2's event bus.
+shape in Course 2's event bus.
 
 ::: tip Vocab: component
 A **component** is a small piece of data attached to an entity.
@@ -110,7 +110,7 @@ To remove it, `delete positions[42];`.
 ::: tip Why two buckets, not one big one?
 You might be tempted to glue everything together — one object
 per entity that has both `position` and `velocity` inside it.
-That's how Track 3's classes worked. ECS deliberately *doesn't*
+That's how Course 3's classes worked. ECS deliberately *doesn't*
 do that. Why?
 
 - An entity can have any combination of components. A *wall*
@@ -209,7 +209,7 @@ Save. Read each line.
   `undefined`.
 - `if (v) { ... }` — skip the entity if it has no Velocity.
 - The two assignments inside do the same arithmetic you've seen
-  every track: move `x` and `y` forward by velocity times time.
+  every course: move `x` and `y` forward by velocity times time.
 
 That's it. That's a system.
 
@@ -286,7 +286,7 @@ system handles that entity. You didn't tell `movementSystem`
 about it. You didn't list it anywhere. You added a row to a
 bucket, and the system found it on its next loop.
 
-That's the bet. The rest of the track cashes it in.
+That's the bet. The rest of the course cashes it in.
 
 ## Step 6 — A second entity, just to feel it
 
@@ -309,7 +309,7 @@ is three lines. The systems scale without a single change.
 The set of components an entity has — for our two entities
 above, "Position + Velocity" — is called the entity's
 **archetype**. We won't *use* archetypes as a feature in this
-track (real engines often optimize storage by them). But the
+course (real engines often optimize storage by them). But the
 word will come up. When you read about ECS later, "archetype"
 just means "what shape of components this entity has."
 :::
@@ -501,7 +501,7 @@ New words:
 
 ## What's next
 
-In [Unit 2](/track-6/unit-2) the white square becomes a *player
+In [Unit 2](/entity-component-system/unit-2) the white square becomes a *player
 ship*. You'll meet your first **marker component** — a tag that
 carries no data, just says "this entity is the player." And
 you'll write an input system that reads the arrow keys.

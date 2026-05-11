@@ -20,7 +20,7 @@ projector pulls a strip of film through a light.
 - How to **save and load** state to the browser with
   `localStorage`, and why it's so easy here.
 
-The last point is the big payoff of the whole track. Because
+The last point is the big payoff of the whole course. Because
 your state is a plain object full of numbers — no methods, no
 class instances — turning it into text (`JSON.stringify`) and
 back (`JSON.parse`) takes one line each. That's a freebie you
@@ -261,7 +261,7 @@ string. No methods, no class instances, no functions. That kind
 of object is exactly what `JSON.stringify` was designed to write,
 and `JSON.parse` is designed to read.
 
-Compare to a Track 3 game built around classes. A `Ball` is an
+Compare to a Course 3 game built around classes. A `Ball` is an
 *instance* of the `Ball` class — it has methods like `update`
 and `draw`. `JSON.stringify(ball)` will dutifully write out the
 fields but throw away the methods. When you `JSON.parse` the
@@ -452,7 +452,7 @@ New words:
 - **`JSON.stringify` / `JSON.parse`** — turn a value into a
   string and back. Trivial when the value is plain data.
 
-## What this whole track was about
+## What this whole course was about
 
 Four short units. The shape of it:
 

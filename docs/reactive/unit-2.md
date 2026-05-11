@@ -470,7 +470,7 @@ New words:
 
 ## What's next
 
-In [Unit 3](/track-5/unit-3) you'll add the first
+In [Unit 3](/reactive/unit-3) you'll add the first
 **upgrade** — a button that costs blocks to buy and adds
 auto-clicks per second forever. You'll meet **derived
 values**: signals computed from other signals. That's where

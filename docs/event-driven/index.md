@@ -1,17 +1,17 @@
-# Track 2 — Event-driven
+# Course 2 — Event-driven
 
-You finished Track 1. The brick-breaker plays, the bricks crumble,
+You finished Course 1. The brick-breaker plays, the bricks crumble,
 the level loads from a file. The game *works*. So why a second
-track?
+course?
 
-Look at `updateBall` from Track 1. In one function it moves the
+Look at `updateBall` from Course 1. In one function it moves the
 ball, checks four walls, plays sounds, updates the score,
 decrements lives, and decides when the game is over. That's a lot
 of jobs in one place. Adding a new thing — say, an achievement
 that fires the first time you bounce the ball off the left wall —
 means digging *into* the ball code and editing it.
 
-In Track 2 you'll rewrite the same game (well — a simpler version
+In Course 2 you'll rewrite the same game (well — a simpler version
 of it) so the parts are **decoupled**. Instead of `updateBall`
 doing all those jobs itself, it'll *announce* things ("the ball
 hit the paddle!") and other code will *listen* for those
@@ -23,11 +23,11 @@ at all.
 
 The pattern has a few names. Programmers call it **pub/sub** (for
 "publish / subscribe"), or the **event bus** pattern. By the end
-of this track you'll know it by all of those names.
+of this course you'll know it by all of those names.
 
-## Who this track is for
+## Who this course is for
 
-You finished Track 1. You're comfortable with `let`, `function`,
+You finished Course 1. You're comfortable with `let`, `function`,
 `if`, arrays, and writing your own helpers. You're not afraid to
 poke at a long `main.ts` to see what each piece does.
 
@@ -35,7 +35,7 @@ poke at a long `main.ts` to see what each piece does.
 
 A working paddle-and-ball game — paddle, bouncing ball, lives,
 score, sound, Game Over — same as where you were at the end of
-Track 1's Unit 6. But under the hood:
+Course 1's Unit 6. But under the hood:
 
 - A tiny **event bus** (about 15 lines of code in a file you
   write).
@@ -55,11 +55,11 @@ Track 1's Unit 6. But under the hood:
   from "who decides what to do about it."
 - Why splitting code this way makes new features *easier* to add.
 
-## What you keep from Track 1
+## What you keep from Course 1
 
 The engine (`game.ts`) doesn't change. `index.html`,
-`package.json`, and `tsconfig.json` don't change. Your Track 1
+`package.json`, and `tsconfig.json` don't change. Your Course 1
 project still works — you just leave it alone and start fresh in
 a new folder.
 
-Ready? Open [Unit 1 — An event bus](/track-2/unit-1).
+Ready? Open [Unit 1 — An event bus](/event-driven/unit-1).

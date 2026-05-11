@@ -1,6 +1,6 @@
 # Unit 4 — Achievements
 
-This is the unit that makes Track 2 worth it.
+This is the unit that makes Course 2 worth it.
 
 You're going to add a brand-new feature — a little **achievement
 system** that pops up celebration toasts on the canvas when you
@@ -442,7 +442,7 @@ New words:
 
 ## What's next
 
-You've finished Track 2. Stop and look at what you built:
+You've finished Course 2. Stop and look at what you built:
 
 - A working brick-breaker-shaped game (paddle, ball, sound,
   lives, score, restart).
@@ -451,9 +451,9 @@ You've finished Track 2. Stop and look at what you built:
   it.
 - A whole achievement system you added in its own file.
 
-Track 3 takes the same brick-breaker and rewrites it again — this
+Course 3 takes the same brick-breaker and rewrites it again — this
 time using **objects** and **classes**, so the ball "knows how
 to update itself" and the paddle is a thing you create rather
 than five separate variables. After two rewrites, you'll start to
 see something subtle: there is more than one good way to
-structure a program. Each track is one of those ways.
+structure a program. Each course is one of those ways.

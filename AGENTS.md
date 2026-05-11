@@ -4,7 +4,7 @@
 
 A self-paced course that teaches programming by building a brick-breaker
 game one version at a time. Materials live in `docs/` as a VitePress site.
-Each game version has a runnable reference scaffold under `scaffold/v<n>/`
+Each course has a runnable reference scaffold under `scaffold/<course>/`
 that mirrors what learners build by following the units.
 
 ## Constraints
@@ -26,13 +26,15 @@ that mirrors what learners build by following the units.
 docs/
   .vitepress/        -- VitePress config
   index.md           -- Landing page
-  unit-N.md          -- One file per unit
+  <course>/          -- One folder per course (procedural,
+                        event-driven, object-oriented, functional,
+                        reactive, entity-component-system)
+    index.md         -- Course landing page
+    unit-N.md        -- One file per unit
 scaffold/
-  v<n>/              -- Runnable reference for game version <n>. Evolves
-                        with each unit that touches v<n>; current state
-                        matches the end of the most recent unit. Learners
-                        do NOT clone this — they build their own copy by
-                        following each unit.
+  <course>/          -- Runnable reference for each course's end-state
+                        game. Learners do NOT clone these — they build
+                        their own copies by following each unit.
 ```
 
 ## Build & verify
@@ -42,9 +44,9 @@ npm install
 npm run docs:dev       # materials site, local with hot reload
 npm run docs:build     # build the materials site
 
-cd scaffold/v0
+cd scaffold/procedural   # or another course
 npm install
-npm run dev            # run the v0 scaffold
+npm run dev            # run the scaffold
 npx tsc --noEmit       # type-check
 npm run build          # production build
 ```
@@ -110,8 +112,8 @@ colon, then the title. Pick the most specific prefix that fits.
 
 | Prefix      | When to use |
 |-------------|-------------|
-| `unit:`     | Adding or revising a unit (a file under `docs/unit-*.md`) |
-| `scaffold:` | Changes to a scaffold under `scaffold/v<n>/` |
+| `unit:`     | Adding or revising a unit (under `docs/<course>/`) |
+| `scaffold:` | Changes to a scaffold under `scaffold/<course>/` |
 | `site:`     | VitePress config, theme, navigation, or landing page |
 | `build:`    | Build, CI, or deploy tooling |
 | `deps:`     | Dependency bumps |

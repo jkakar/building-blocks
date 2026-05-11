@@ -205,7 +205,7 @@ Scroll through `main.ts` end-to-end. The shape:
 8. `draw` — reads signals, paints rectangles and text.
 9. `start(update, draw);`.
 
-Compare it to the bricky `main.ts` you finished Track 1 with.
+Compare it to the bricky `main.ts` you finished Course 1 with.
 Different game, very different shape — but notice what's *not*
 there:
 
@@ -429,7 +429,7 @@ New words:
   once every N milliseconds; useful for expensive
   side-effects. Not needed for `localStorage` in this game.
 
-## What this whole track was about
+## What this whole course was about
 
 Four short units. Each one bought you something the last one
 couldn't have:
@@ -458,4 +458,4 @@ spreadsheet cell with a formula is a derived signal. The cell
 "watches" its inputs; when an input changes, the formula
 re-runs. Same shape.
 
-Track 5 done. The game is small but the bones are real.
+Course 5 done. The game is small but the bones are real.

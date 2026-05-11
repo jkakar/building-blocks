@@ -17,7 +17,7 @@ will handle the new asteroids without a single change.
 
 ## What you'll learn
 
-- The **timer-pattern** you saw in Track 1 Unit 10, now wrapped
+- The **timer-pattern** you saw in Course 1 Unit 10, now wrapped
   in a system.
 - How to **destroy** an entity properly across multiple
   component buckets.
@@ -109,8 +109,8 @@ entity *qualifies* for both buckets, so they handle it for
 free.
 
 This is the bet the whole architecture has been building
-toward. In an OO version (Track 3), adding a new entity type
-meant a new class. In a procedural version (Track 1), adding
+toward. In an OO version (Course 3), adding a new entity type
+meant a new class. In a procedural version (Course 1), adding
 a second moving thing meant copying every loop. Here, the
 *data* is new; the *behavior* is unchanged.
 
@@ -502,10 +502,10 @@ New words:
 
 ## What's next
 
-In [Unit 4](/track-6/unit-4) the ship and the asteroids start
+In [Unit 4](/entity-component-system/unit-4) the ship and the asteroids start
 interacting. You'll write a **collision system** that asks:
 "for every player, for every asteroid, do their boxes
 overlap?" You'll add lives and a Game Over screen, and the game
 will *be a game*. The collision system is the first system in
-this track that has to look at *two different markers* at
+this course that has to look at *two different markers* at
 once — the cleanest demo of why systems compose.

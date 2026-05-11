@@ -1,6 +1,6 @@
 # Unit 1 — State as data
 
-Track 1's game holds the ball's information in four loose
+Course 1's game holds the ball's information in four loose
 variables — `x`, `y`, `vx`, `vy` — and pokes at them every frame:
 `x = x + vx * dt;`, `vx = -vx;`, and so on. That works fine, but
 it has a property worth noticing: every old value gets **thrown
@@ -27,7 +27,7 @@ to make a *new* object instead of poking at the old one.
 
 ## Step 1 — Make a new project folder
 
-You'll keep your earlier projects where they are. Track 4 lives
+You'll keep your earlier projects where they are. Course 4 lives
 in its own folder.
 
 Open Zed's terminal. Run these one at a time:
@@ -37,7 +37,7 @@ mkdir ~/blocks-fp
 cd ~/blocks-fp
 ```
 
-Copy the four supporting files from your Track 1 project:
+Copy the four supporting files from your Course 1 project:
 
 ```sh
 cp ~/blocks/index.html ~/blocks-fp/
@@ -53,12 +53,12 @@ Install the tools:
 npm install
 ```
 
-(If anything feels rusty, [Unit 0](/unit-0) has the full
+(If anything feels rusty, [Unit 0](/procedural/unit-0) has the full
 walk-through.)
 
-Create `src/main.ts`. We're starting from the **end of Track 1's
+Create `src/main.ts`. We're starting from the **end of Course 1's
 Unit 6** — the simple paddle-and-ball game with lives, score, and
-sound, but no bricks yet. (Same starting point as Tracks 2 and
+sound, but no bricks yet. (Same starting point as Courses 2 and
 3.) Type this in:
 
 ```ts
@@ -218,7 +218,7 @@ npm run dev
 ```
 
 Open the URL. You should see the paddle-and-ball game from the
-end of Track 1's Unit 6 — bounce the ball, score points, lose
+end of Course 1's Unit 6 — bounce the ball, score points, lose
 lives, see Game Over.
 
 From here on the picture won't change much. We're changing how
@@ -500,7 +500,7 @@ function updateBall(dt: number) {
 Save. The ball moves exactly like before. Play a few rounds to
 prove it.
 
-What's different? In Track 1, the motion code was *changing*
+What's different? In Course 1, the motion code was *changing*
 `state.x` and `state.y` in place. Now `moveBall` builds a *new*
 state with new `x` and `y`, hands it back, and the line `state =
 moveBall(state, dt);` replaces the old state object with the new
@@ -516,11 +516,11 @@ fields, but we never wrote to them. The new state object —
 either; next frame we'll just build *yet another* new one.
 
 The opposite is **mutation** — changing a value in place. Most of
-your Track 1 code was mutation: `score = score + 1;`,
+your Course 1 code was mutation: `score = score + 1;`,
 `x = x + vx * dt;`, `vy = -vy;`. All four "left side equals
 something involving the same variable" patterns.
 
-The rule for Track 4: pretend mutating an existing state is
+The rule for Course 4: pretend mutating an existing state is
 illegal. To "change" a state, make a new one.
 :::
 
@@ -771,7 +771,7 @@ New words:
 
 ## What's next
 
-In [Unit 2](/track-4/unit-2) you'll convert *all* the
+In [Unit 2](/functional/unit-2) you'll convert *all* the
 update-piece functions to the pure pattern — `updatePaddle`,
 `updateBall`, `handleEdgeBounce`, `handleMiss`. Then you'll glue
 them together into one `tick(state, dt)` function. That's the

@@ -1,9 +1,9 @@
-# Track 3 — Object-oriented
+# Course 3 — Object-oriented
 
-You finished Track 1. You finished Track 2. The same game has been
+You finished Course 1. You finished Course 2. The same game has been
 written two different ways. Time for a third.
 
-Open `main.ts` from Track 1's Unit 6 and scan the variables at the
+Open `main.ts` from Course 1's Unit 6 and scan the variables at the
 top:
 
 ```ts
@@ -24,7 +24,7 @@ flat list at the top of the file. To add a second ball you'd copy
 four lines and pick new names: `x2`, `y2`, `vx2`, `vy2`. To add a
 third, four more. The duplication adds up fast.
 
-In Track 3 you'll rewrite the simpler version of the game — paddle,
+In Course 3 you'll rewrite the simpler version of the game — paddle,
 ball, lives, score, sound, no bricks — using **classes**. A class
 is a blueprint for a kind of thing in the game. A `Ball` class
 bundles all four ball fields and the ball's `update` and `draw`
@@ -36,9 +36,9 @@ from another and change *just the parts that differ*. A
 `ToughBrick` is a `Brick` that takes two hits instead of one. You
 write the differences; the rest comes for free.
 
-## Who this track is for
+## Who this course is for
 
-You finished Track 1. (Track 2 is a bonus; you can do Track 3
+You finished Course 1. (Course 2 is a bonus; you can do Course 3
 without it.) You're comfortable with `let`, `function`, `if`,
 arrays, and writing your own helpers.
 
@@ -46,7 +46,7 @@ arrays, and writing your own helpers.
 
 A working paddle-and-ball game — paddle, bouncing ball, lives,
 score, sound, Game Over — same as where you were at the end of
-Track 1's Unit 6. Plus one brand-new thing only Track 3 has: a
+Course 1's Unit 6. Plus one brand-new thing only Course 3 has: a
 **multi-ball power-up**. Every few paddle hits, an extra ball
 appears. Five balls bouncing around at once.
 
@@ -72,11 +72,11 @@ Under the hood:
 - **Field** — a variable that lives on an instance.
 - **Inheritance** / **`extends`** — one class building on another.
 
-## What you keep from Track 1
+## What you keep from Course 1
 
 The engine (`game.ts`) doesn't change. `index.html`,
-`package.json`, and `tsconfig.json` don't change. Your Track 1
+`package.json`, and `tsconfig.json` don't change. Your Course 1
 project still works — leave it alone and start fresh in a new
 folder.
 
-Ready? Open [Unit 1 — Ball as a class](/track-3/unit-1).
+Ready? Open [Unit 1 — Ball as a class](/object-oriented/unit-1).
