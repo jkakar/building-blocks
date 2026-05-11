@@ -8,6 +8,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: "Start here", link: "/unit-0" },
+      { text: "What you'll know", link: "/what-youll-know" },
       { text: "Roadmap", link: "/roadmap" },
     ],
     sidebar: [
@@ -73,7 +74,10 @@ export default defineConfig({
       },
       {
         text: "Planning",
-        items: [{ text: "Roadmap", link: "/roadmap" }],
+        items: [
+          { text: "Roadmap", link: "/roadmap" },
+          { text: "What you'll know", link: "/what-youll-know" },
+        ],
       },
     ],
     socialLinks: [
