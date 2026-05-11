@@ -9,7 +9,6 @@ export default defineConfig({
     nav: [
       { text: "Start here", link: "/unit-0" },
       { text: "What you'll know", link: "/what-youll-know" },
-      { text: "Roadmap", link: "/roadmap" },
     ],
     sidebar: [
       {
@@ -73,9 +72,8 @@ export default defineConfig({
         items: [{ text: "Unit 14 — Deploy and share", link: "/unit-14" }],
       },
       {
-        text: "Planning",
+        text: "Reference",
         items: [
-          { text: "Roadmap", link: "/roadmap" },
           { text: "What you'll know", link: "/what-youll-know" },
         ],
       },

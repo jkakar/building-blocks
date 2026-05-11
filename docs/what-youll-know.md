@@ -125,9 +125,10 @@ heavy lifting under all the unfamiliar syntax.
 
 ## Where to go from here
 
-- The [Roadmap](/roadmap) lists optional **synthesis stretches**
-  at three milestones — places to take everything you've built
-  and make something different with it.
+- **Pick a synthesis stretch.** Take everything you've built and
+  reinvent one version of the game with different rules. Paddle
+  on the left, sticky paddle, two-paddle co-op, inverted gravity —
+  pick something. No walkthrough; just you and what you know.
 - Use the same engine (`game.ts`) for an entirely different game:
   Snake, Pong, an asteroid dodge, a maze.
 - Pick up one of the "doesn't teach" items from the list above
