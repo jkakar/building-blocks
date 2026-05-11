@@ -27,7 +27,7 @@ That's the unit.
 
 - How to keep a bounded **history** of past states.
 - How "rewinding" is just *walking the list backward*.
-- Why this works at all (and why Track 1's code can't do it).
+- Why this works at all (and why Course 1's code can't do it).
 
 ## Step 1 — Remember every state
 
@@ -99,7 +99,7 @@ hold the ball's starting position — it would hold whatever
 `state` looks like *right now*, because both `history[0]` and
 `state` would point to the same memory.
 
-That's exactly what Track 1 couldn't do trivially. In Track 1,
+That's exactly what Course 1 couldn't do trivially. In Course 1,
 "the ball's state" wasn't an object you could copy; it was eight
 loose variables, and the only way to "save a snapshot" was to
 write a function that copied each of the eight by hand.
@@ -277,7 +277,7 @@ Each entry in `history` is a complete, frozen `State`. Setting
 shape it was on frame `i` — same ball position, same paddle
 position, same score, same lives.
 
-In Track 1, "going back one frame" wasn't a meaningful idea. The
+In Course 1, "going back one frame" wasn't a meaningful idea. The
 state was scattered across `x`, `y`, `vx`, `vy`, `paddleX`,
 `lives`, `score`, `gameState`. You'd have to remember and restore
 each one. With one object, restoring is one line.
@@ -503,7 +503,7 @@ New words:
 
 ## What's next
 
-In [Unit 4](/track-4/unit-4) we turn rewind into a proper
+In [Unit 4](/functional/unit-4) we turn rewind into a proper
 **replay** feature: after Game Over, press **P** to watch the
 last five seconds. Then we save the replay to the browser so it
 survives a reload — your last play's final moments are still

@@ -5,7 +5,7 @@ End of Unit 3 you had a green ship and a falling brown blizzard
 the ship. This unit makes the ship *take damage*.
 
 The new piece is a **collision system**. Every system so far has
-looped *one* bucket. Collision is the first system in this track
+looped *one* bucket. Collision is the first system in this course
 that walks *two* — players and asteroids — and asks "do any of
 these overlap any of those?"
 
@@ -41,7 +41,7 @@ function overlaps(
 }
 ```
 
-If you've done Track 1 Unit 7 (bricks) or Track 3 Unit 2, this
+If you've done Course 1 Unit 7 (bricks) or Course 3 Unit 2, this
 math should look familiar — it's the same paddle-vs-ball check,
 generalized to "two squares of any size."
 
@@ -280,7 +280,7 @@ Move the ship. The score climbs in seconds. Take three hits and
 the screen says Game Over. Press space — the screen clears, the
 ship recenters, the asteroids start fresh.
 
-Take a minute to stare at it. Compare to the Track 1
+Take a minute to stare at it. Compare to the Course 1
 brick-breaker. Same number of components (paddle, ball,
 bricks). Wildly different *peak entity count*: brick-breaker
 caps around 30; this game easily hits 100+ at once.
@@ -504,7 +504,7 @@ cleanup.
 ## What you just did
 
 - Wrote a **collision system** that nests two `for...in` loops
-  — the first system in this track to combine two markers.
+  — the first system in this course to combine two markers.
 - Added game-level state (`lives`, `score`, `gameState`) outside
   of any component bucket.
 - Wired a callback (`loseLife`) into the collision system so it
@@ -520,7 +520,7 @@ New words:
 - **Spatial partitioning** — speeding up pair-checks by only
   comparing nearby things. Not built here; worth knowing about.
 
-## What this whole track was about
+## What this whole course was about
 
 Four short units. Each one cashed in a piece of the ECS bet:
 
@@ -553,6 +553,6 @@ names, same shape: separate the data from the procedures that
 walk it, and write the procedures so they don't care where
 they're called from.
 
-Track 6 done. The asteroid field stays in your folder — open
+Course 6 done. The asteroid field stays in your folder — open
 any of the system files, swap a number, save, and watch
 something else happen. The bones are real.

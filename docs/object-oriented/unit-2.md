@@ -338,7 +338,7 @@ method you're reaching for.
 
 ## Step 5 — Add a single Brick
 
-The Track 1 game we're rebuilding doesn't have bricks yet. But in
+The Course 1 game we're rebuilding doesn't have bricks yet. But in
 Unit 3 we want to teach **inheritance**, and inheritance is most
 fun when one class extends another and changes a few things. So
 we add `Brick` here, as a single brick at the top of the canvas,
@@ -389,7 +389,7 @@ Save. Things to notice:
 
 - It looks *a lot* like Paddle — same four position-and-size
   fields, same `intersects` method. That's not a coincidence —
-  bricks and paddles are both rectangles. In Track 1 you'd have
+  bricks and paddles are both rectangles. In Course 1 you'd have
   written the overlap code twice. Now you write it once per
   class. (In a moment you'll see that even *that* duplication
   can be removed, when bricks inherit from one another in Unit 3
@@ -660,7 +660,7 @@ New words:
 
 ## What's next
 
-In [Unit 3](/track-3/unit-3) you'll meet **inheritance**. You'll
+In [Unit 3](/object-oriented/unit-3) you'll meet **inheritance**. You'll
 write a `ToughBrick` class that *extends* `Brick` — it inherits
 everything (fields, constructor, `intersects`) and overrides only
 the bits that differ: a different color and a two-hit-to-die

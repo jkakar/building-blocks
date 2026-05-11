@@ -1,6 +1,6 @@
 # Unit 1 — Signals
 
-Before this track you've kept the game's information in plain
+Before this course you've kept the game's information in plain
 variables. `let score = 0;` and then later `score = score + 1;`.
 Works fine. But notice: nobody finds out the score changed
 *unless* they happen to look. The HUD draws the score every
@@ -31,7 +31,7 @@ forget about it. The signal does the notifying.
 
 ## Step 1 — Make a new project folder
 
-Track 5 lives in its own folder. Your earlier projects stay
+Course 5 lives in its own folder. Your earlier projects stay
 where they are.
 
 Open Zed's terminal. Run these one at a time:
@@ -41,9 +41,9 @@ mkdir ~/blocks-clicker
 cd ~/blocks-clicker
 ```
 
-You need the same four supporting files Track 1 had — the engine
+You need the same four supporting files Course 1 had — the engine
 (`game.ts`), the web page (`index.html`), and the two config
-files. Copy them from your Track 1 project:
+files. Copy them from your Course 1 project:
 
 ```sh
 cp ~/blocks/index.html ~/blocks-clicker/
@@ -59,7 +59,7 @@ Install the tools:
 npm install
 ```
 
-(If anything feels rusty, [Unit 0](/unit-0) has the full
+(If anything feels rusty, [Unit 0](/procedural/unit-0) has the full
 walk-through.)
 
 You won't write `main.ts` yet — we'll build it piece by piece in
@@ -124,7 +124,7 @@ Real signal libraries let you store *anything* in a signal — a
 string, an object, an array. Doing that cleanly in TypeScript
 needs a feature called **generics** that's a topic for another
 day. To keep things readable, our `numberSignal` only holds
-numbers. That'll be enough for this whole track. If you ever
+numbers. That'll be enough for this whole course. If you ever
 need a boolean, store `0` or `1` and pretend.
 :::
 
@@ -209,7 +209,7 @@ is called **notifying** them. So the pattern has two halves:
 
 You'll see this exact shape outside of signals too: email
 newsletters work this way (you subscribe once, the publisher
-emails you every issue), and the event bus from Track 2 is the
+emails you every issue), and the event bus from Course 2 is the
 same idea applied to *named events* rather than a single value.
 :::
 
@@ -271,7 +271,7 @@ calls `draw` *every frame*, sixty times a second, no matter
 what. Each call reads `count.get()` afresh. There's no
 subscription involved.
 
-That's a quiet point about this track: when you redraw every
+That's a quiet point about this course: when you redraw every
 frame anyway, signals don't add value to the drawing. They add
 value to *the side effects that aren't drawing* — logging,
 playing sounds, saving to localStorage, unlocking buttons. The
@@ -342,7 +342,7 @@ right next to me."
 
 **`Cannot find name 'setInterval'`**
 You probably forgot the `"DOM"` entry in `tsconfig.json`'s
-`"lib"`. Copy `tsconfig.json` from your Track 1 project again —
+`"lib"`. Copy `tsconfig.json` from your Course 1 project again —
 the version that says `"lib": ["ES2022", "DOM", "DOM.Iterable"]`.
 
 **The console doesn't print anything.**
@@ -377,7 +377,7 @@ New words:
 
 ## What's next
 
-In [Unit 2](/track-5/unit-2) you'll get rid of the
+In [Unit 2](/reactive/unit-2) you'll get rid of the
 `setInterval`. Instead, the count goes up when the player
 *clicks* a big rectangle on the canvas. You'll attach a click
 listener directly to the canvas — the engine doesn't know about

@@ -249,7 +249,7 @@ events.
 
 - Add a `console.log("game over!");` inside the `"game:over"`
   subscriber. Lose three balls. The line logs once. (Compare:
-  earlier in this track, the place that "knew" about game over
+  earlier in this course, the place that "knew" about game over
   was deep inside the ball code. Now it's a labeled handler at
   the top of the file.)
 - Add a `console.log("restart!");` inside the `"game:restart"`
@@ -350,7 +350,7 @@ make sure the names match.
 
 **TypeScript red squiggle: `'restartGame' is declared but never used`.**
 You deleted the call but not the function. Delete the function
-itself — Track 2's `main.ts` no longer needs `restartGame`.
+itself — Course 2's `main.ts` no longer needs `restartGame`.
 
 ## What you just did
 
@@ -376,7 +376,7 @@ New words:
 
 ## What's next
 
-[Unit 4](/track-2/unit-4) is the payoff. You'll add a brand-new
+[Unit 4](/event-driven/unit-4) is the payoff. You'll add a brand-new
 feature — an **achievements** system that pops up "Pong Master!"
 and "Untouchable!" toasts — and write it in its own file. The
 game code in `main.ts` won't change to support it, except for one

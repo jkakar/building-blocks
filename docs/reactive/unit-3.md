@@ -417,7 +417,7 @@ constant, and a draw block.
 *almost identical structure*. That repetition is a smell — it's
 telling you "we'd really like an `Upgrade` data structure that
 captures all five pieces at once, and a loop that handles
-them." That refactor is what Track 6 — ECS — opens with. We
+them." That refactor is what Course 6 — ECS — opens with. We
 won't do it here.)
 
 ### Challenge — The "subscribe-as-derived" shorthand
@@ -529,7 +529,7 @@ New words:
 
 ## What's next
 
-In [Unit 4](/track-5/unit-4) you'll add **persistence**. Each
+In [Unit 4](/reactive/unit-4) you'll add **persistence**. Each
 signal that should survive a reload gets a subscriber that
 writes to `localStorage`. On boot, you read those values back
 and set the signals. Three lines per signal. The reason it's

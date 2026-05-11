@@ -285,7 +285,7 @@ function reactToChange(oldState: State, newState: State) {
 Read it: "if the score just went up, bonk. Otherwise, if either
 velocity just flipped, bonk." That covers all four old `playBonk`
 calls (paddle hit, three wall bounces). The miss case — losing a
-life — was silent in Track 1, so we leave it silent.
+life — was silent in Course 1, so we leave it silent.
 
 `reactToChange` is the *opposite* of pure: it makes noise, and it
 returns nothing useful. It's where we keep the side effects on a
@@ -296,7 +296,7 @@ leash. Pure code computes the new world; impure code (here, in
 You might notice the comparison approach isn't airtight. If `vy`
 flips *and* the score goes up on the same frame, we play bonk
 once (paddle hit), not twice. That's actually what we want — but
-it took thought to get right. The Track 1 version was more
+it took thought to get right. The Course 1 version was more
 obvious: every place that bounced called `playBonk()` right
 there.
 
@@ -423,7 +423,7 @@ You'll need to:
 
   (There's a one-liner version using a *ternary* —
   `s.score + (s.paddleHitThisFrame ? 1 : 0)` — but the `if`
-  form reads fine and uses only what Track 1 taught.)
+  form reads fine and uses only what Course 1 taught.)
 - Insert `next = updateScore(next);` in `tick` *after*
   `handlePaddleHit`.
 
@@ -510,7 +510,7 @@ New words:
 
 ## What's next
 
-In [Unit 3](/track-4/unit-3) you'll start *keeping* every state
+In [Unit 3](/functional/unit-3) you'll start *keeping* every state
 your game has ever been in. A `history` array, one frozen
 snapshot per frame. And then — because the snapshots are
 already there — pressing **R** rewinds the game by walking

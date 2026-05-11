@@ -393,7 +393,7 @@ New words:
 
 ## What's next
 
-In [Unit 3](/track-2/unit-3) the *game-state* transitions —
+In [Unit 3](/event-driven/unit-3) the *game-state* transitions —
 Game Over and restart — become events too. You'll see why this is
 the moment things really start to pay off: the game loop will
 stop writing to `gameState` directly. And you'll learn a word for

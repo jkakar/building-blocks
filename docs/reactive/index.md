@@ -1,6 +1,6 @@
-# Track 5 — Reactive
+# Course 5 — Reactive
 
-The four tracks behind you all do the same job four different
+The four courses behind you all do the same job four different
 ways: a paddle, a ball, a score that ticks up on each bounce. The
 state-shapes differ — loose `let`s, event handlers, classes, a
 single `state` object — but every frame the engine runs your
@@ -20,7 +20,7 @@ about every modern UI library — Svelte, Solid, the newer Vue,
 Vue's `ref`s, React's `useState` (a cousin), MobX `observable`s,
 Knockout from a decade ago. Different names, same idea.
 
-Track 5 teaches signals by building a *new* game — a clicker.
+Course 5 teaches signals by building a *new* game — a clicker.
 
 ## Why a new game
 
@@ -36,11 +36,11 @@ second, which buys you nothing. A clicker — a button you tap, a
 counter that goes up, upgrades that unlock when the counter
 crosses a threshold — is the canonical signals demo.
 
-## Who this track is for
+## Who this course is for
 
-You finished Track 1. Anything else is a bonus. If you did
-Track 2 (events), you'll notice that signals are pub/sub focused
-on *one value at a time*. If you did Track 4 (functional),
+You finished Course 1. Anything else is a bonus. If you did
+Course 2 (events), you'll notice that signals are pub/sub focused
+on *one value at a time*. If you did Course 4 (functional),
 you'll notice that signals are state-as-data with subscriptions
 bolted on. Both are useful background, neither is required.
 
@@ -70,7 +70,7 @@ A working idle/clicker game:
 - **Persistence** — once your state lives in signals, saving and
   loading it is a four-line trick.
 
-## What you keep from Track 1
+## What you keep from Course 1
 
 The engine (`game.ts`) doesn't change. `index.html`,
 `package.json`, and `tsconfig.json` don't change. Your earlier
@@ -83,4 +83,4 @@ You'll attach a click listener directly to the canvas from
 `main.ts`. (A real engine would smooth that seam over; for one
 unit it's fine to see the join.)
 
-Ready? Open [Unit 1 — Signals](/track-5/unit-1).
+Ready? Open [Unit 1 — Signals](/reactive/unit-1).

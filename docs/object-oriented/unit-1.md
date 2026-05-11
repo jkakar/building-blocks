@@ -1,6 +1,6 @@
 # Unit 1 — Ball as a class
 
-Track 1's game keeps the ball's information in four loose
+Course 1's game keeps the ball's information in four loose
 variables: `x`, `y`, `vx`, `vy`. The code that moves the ball is
 in `updateBall`. The code that draws it is in `drawBall`. The
 state and the behavior live in different places — connected only
@@ -22,8 +22,8 @@ make a ball with `new Ball()` and tell it to move with
 
 ## Step 1 — Make a new project folder
 
-You'll keep your Track 1 (and Track 2, if you did it) games where
-they are. Track 3 lives in its own folder.
+You'll keep your Course 1 (and Course 2, if you did it) games where
+they are. Course 3 lives in its own folder.
 
 Open Zed's terminal. Run these one at a time:
 
@@ -32,10 +32,10 @@ mkdir ~/blocks-oo
 cd ~/blocks-oo
 ```
 
-You need the same four supporting files Track 1 had — the engine
+You need the same four supporting files Course 1 had — the engine
 (`game.ts`), the web page (`index.html`), and the two config
 files (`package.json`, `tsconfig.json`). Copy them from your
-Track 1 project:
+Course 1 project:
 
 ```sh
 cp ~/blocks/index.html ~/blocks-oo/
@@ -51,13 +51,13 @@ Then install the tools:
 npm install
 ```
 
-(If anything here feels rusty, [Unit 0](/unit-0) has the full
+(If anything here feels rusty, [Unit 0](/procedural/unit-0) has the full
 walk-through.)
 
-Now create `src/main.ts`. We're starting from the **end of Track
+Now create `src/main.ts`. We're starting from the **end of Course
 1's Unit 6** — the simple paddle-and-ball game with lives, score,
-and sound, but no bricks yet. (Same starting point as Track 2 — if
-you did Track 2, this code will look very familiar.) Bricks come
+and sound, but no bricks yet. (Same starting point as Course 2 — if
+you did Course 2, this code will look very familiar.) Bricks come
 back in Unit 2.
 
 Open `~/blocks-oo/src/main.ts` in Zed and type in this code:
@@ -436,7 +436,7 @@ and `dt` is `0.0166`, what does this line set `this.x` to?
 `this.x` ends up about `3.3` higher than it was. The right-hand
 side reads the *current* `this.x`, adds `200 * 0.0166 ≈ 3.32`, and
 puts that result back into `this.x`. Same arithmetic as `x = x +
-vx * dt` from Track 1 — `this.` just spells out *whose* `x` and
+vx * dt` from Course 1 — `this.` just spells out *whose* `x` and
 `vx` you mean.
 
 </details>
@@ -775,7 +775,7 @@ New words:
 
 ## What's next
 
-In [Unit 2](/track-3/unit-2) you'll do for the paddle what you
+In [Unit 2](/object-oriented/unit-2) you'll do for the paddle what you
 just did for the ball — turn it into a `Paddle` class. That
 cleans up the long `ball.update(dt, paddleX, paddleY,
 paddleWidth, paddleHeight)` call: it becomes
