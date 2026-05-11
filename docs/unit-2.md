@@ -46,6 +46,10 @@ function update(dt: number) {
 }
 ```
 
+(Your numbers might say `770` and `570` instead of `800 - 30` and
+`600 - 30`. Same numbers, just written differently — leave yours
+however you have it.)
+
 You can also remove `isKeyDown` from the import, since you don't
 use it anymore:
 
@@ -53,7 +57,9 @@ use it anymore:
 import { start, Ctx } from "./game";
 ```
 
-Save. The square sits still — no input, nothing moving it.
+Save. The square sits still — no input, nothing moving it. The
+`dt` parameter in `update(dt: number)` is unused for the moment;
+that's fine, you'll bring it back in Step 2.
 
 ::: tip Tidying up as you go
 Deleting code is part of programming. When something stops being
@@ -87,6 +93,28 @@ function update(dt: number) {
 }
 ```
 
+Your whole `update` now looks like this:
+
+```ts
+function update(dt: number) {
+  x = x + vx * dt;
+  y = y + vy * dt;
+
+  if (x < 0) {
+    x = 0;
+  }
+  if (x > 800 - 30) {
+    x = 800 - 30;
+  }
+  if (y < 0) {
+    y = 0;
+  }
+  if (y > 600 - 30) {
+    y = 600 - 30;
+  }
+}
+```
+
 Save. The square slides toward the bottom-right corner, then
 *sticks* there (your "stop at the edges" code is still running).
 
@@ -100,6 +128,10 @@ Here's what's happening:
   stores the result. Same pattern as Unit 1 with the arrow keys,
   except the *speed* now lives in a variable instead of being a
   fixed `200`.
+- Quick `dt` reminder: `dt` is how many seconds since the last
+  frame (around `0.0166`). `vx * dt` is "how many pixels to move
+  *this* frame." That trick is what makes the game run the same
+  speed on slow and fast computers.
 
 These two numbers together — `vx` and `vy` — are the square's
 **velocity**: how fast and in which direction it's moving.
@@ -248,6 +280,12 @@ Step 3.
 **Red squiggly line under `isKeyDown`.**
 You removed the arrow-key code but kept `isKeyDown` in the import.
 Remove it from the import line.
+
+**The ball got faster and faster and then disappeared.**
+You probably did Challenge 1 with too big a multiplier. If you
+speed the ball up enough, it covers more pixels per frame than
+the wall is thick, and the edge check misses it. Start with `1.1`
+(10% faster per bounce) before trying anything bigger.
 
 ## What you just did
 

@@ -7,11 +7,14 @@ edge clamps, paddle collision, score, lives, game-over logic, and
 restart. Reading from top to bottom takes a while, and finding a
 specific bit means scanning past a lot of unrelated stuff.
 
-This unit doesn't add a single new feature. The game won't look any
-different at the end. But the code will be **easier to read,
-easier to find things in, and easier to extend** when we start
-adding bricks in Unit 7. The work of cleaning up code without
-changing what it does is called **refactoring**.
+In Unit 7 we add the thing the game is named after — bricks.
+Lots of them, in an array, with their own draw and collision code.
+Before we cram more into `main.ts`, let's make `main.ts` somewhere
+we'd *want* to put new things. The game won't look any different
+at the end of this unit, but the code will be **easier to read,
+easier to find things in, and easier to extend**. The work of
+cleaning up code without changing what it does is called
+**refactoring**.
 
 ## What you'll learn
 
@@ -182,6 +185,7 @@ function updateBall(dt: number) {
     y < paddleY + paddleHeight
   ) {
     vy = -vy;
+    y = paddleY - 30;
     score = score + 1;
     playBonk();
   }
@@ -221,6 +225,9 @@ Save. **Behavior should be exactly the same.**
 in a second: "if game over, handle restart and return; otherwise,
 update the paddle and update the ball." The *what* is right there.
 The *how* moved down into the helpers.
+
+Scroll up to your `update` function and count the lines. That's
+your win for this unit — same behavior, way easier to read.
 
 ## Step 5 — Split `draw` apart
 
@@ -349,6 +356,16 @@ So far your functions have just *done* things. Functions can also
 Write a function `isGameOver()` that returns `true` if `gameState`
 is `"gameOver"` and `false` otherwise. Then replace
 `gameState === "gameOver"` everywhere with `isGameOver()`.
+
+::: warning Don't use find-and-replace here
+You might be tempted to use your editor's find-and-replace on
+`gameState === "gameOver"`. *Don't* — the body of `isGameOver`
+itself contains that exact text, and replacing it there gives you
+`function isGameOver() { return isGameOver(); }`, which calls
+itself forever and freezes your game when triggered. Swap each
+call site by hand, or write the new function only *after* you've
+swapped all the call sites.
+:::
 
 <details><summary>Hint</summary>
 

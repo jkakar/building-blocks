@@ -80,8 +80,10 @@ if (paddleX > 800 - paddleWidth) {
 }
 ```
 
-`400` is a bit faster than the `200` we used in Unit 1 — paddles
-need to feel responsive. You can tune that number to taste.
+`400` is a bit faster than the `200` we used in Unit 1. Paddles
+need to be quick — a paddle that's slower than the ball can't
+get under the ball in time, and the player feels like the game is
+fighting them. You can tune that number to taste.
 
 Save. The paddle slides left and right when you press the arrow
 keys; the ball still bounces around. They don't notice each other
@@ -92,17 +94,37 @@ yet.
 
 <details><summary>Click for the answer</summary>
 
-The paddle would be able to slide off the right edge — half of it
-would be invisible to the right of the canvas. `paddleX = 800;`
-puts the *left side* of the paddle right at the right edge of the
-canvas, so the rest of the paddle is past the edge.
+The whole paddle would slide off the right edge — invisible.
+`paddleX = 800;` puts the *left side* of the paddle right at the
+canvas's right edge, so the rest of the paddle is drawn past the
+edge, off-screen.
 
 </details>
 
 ## Step 3 — Bounce the ball off the paddle
 
-The ball still goes straight through the paddle. We want it to
-bounce when they touch.
+The paddle is now the bottom guard — when the player misses, the
+ball *should* fly past the paddle and off the canvas (we'll handle
+that case in Unit 4). The old bottom-wall bounce from Unit 2 is
+in the way: it catches the ball and prevents the miss from ever
+happening.
+
+**Delete the bottom-wall bounce.** Find this block in `update`:
+
+```ts
+if (y > 600 - 30) {
+  y = 600 - 30;
+  vy = -vy;
+}
+```
+
+Remove it. Leave the left, right, and top bounces in place — those
+still walls. The ball will now fly straight through where the
+floor used to be and off the bottom of the canvas. That's fine for
+this step.
+
+Save. Now the ball still goes straight through the paddle. We want
+it to bounce when they touch.
 
 Two rectangles are *touching* (overlapping) when **all four** of
 these are true:
@@ -125,8 +147,13 @@ if (
   y < paddleY + paddleHeight
 ) {
   vy = -vy;
+  y = paddleY - 30;
 }
 ```
+
+The `y = paddleY - 30;` line snaps the ball to just above the
+paddle. Without it, the ball can end up *inside* the paddle for a
+frame or two and bounce up-and-down forever in place.
 
 What each line is saying:
 
@@ -202,18 +229,19 @@ some number like `5` or `10`. Tune until it feels good.
 ## Troubleshooting
 
 **The ball "sticks" to the paddle and shakes.**
-That can happen if the ball is moving down when it hits the paddle,
-bounces up, but is still inside the paddle on the next frame, so
-it bounces down again, etc. A quick fix: along with `vy = -vy;`,
-also set `y = paddleY - 30;` to push the ball just above the
-paddle.
+That can happen if your paddle-bounce block doesn't include
+`y = paddleY - 30;`. Without that line, the ball can end up
+inside the paddle for a frame or two and bounce in place. Check
+Step 3's code again.
 
 **The ball passes right through the paddle.**
 Either your AABB check is wrong (compare it to Step 3 carefully),
-or the ball is moving so fast that it goes through in one frame
-(skip from above the paddle to below in one update). The fix for
-fast tunneling is more advanced; for now, keep the ball slow
-enough to catch.
+or the ball is moving so fast that it skips past the paddle in
+a single frame. That's called **tunneling**: at 200 pixels per
+second and a 12-pixel-tall paddle, the ball travels more than the
+paddle's height per frame at certain frame rates, and the check
+never sees the overlap. The fix is more advanced; for now, keep
+the ball slow enough to catch (`vy = 150` is fine).
 
 ## What you just did
 

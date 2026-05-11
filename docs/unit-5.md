@@ -22,14 +22,15 @@ Add a new variable near `lives`:
 let score = 0;
 ```
 
-Show it on the canvas. In `draw`, near the line that draws lives:
+Show it on the canvas. In `draw`, **add one line** right after
+the existing `ctx.fillText("Lives: ...", 10, 30);`:
 
 ```ts
-ctx.fillStyle = "white";
-ctx.font = "20px sans-serif";
-ctx.fillText("Lives: " + lives, 10, 30);
 ctx.fillText("Score: " + score, 700, 30);
 ```
+
+(The `fillStyle` and `font` from the Lives line carry over — no
+need to re-set them.)
 
 The score is in the top-right corner (x = 700).
 
@@ -123,8 +124,10 @@ A note), lasting 100 milliseconds, fading out at the end. You
 don't need to understand every line. What matters is that calling
 `playBonk()` plays a bonk.
 
-Now *call* it. Add `playBonk();` inside every bounce — the four
-wall bounces and the paddle bounce:
+Now *call* it. Add `playBonk();` inside every bounce — the three
+wall bounces (left, right, top) and the paddle bounce. (No bottom
+wall: from Unit 3 onward, the bottom is where the player loses a
+life, not where the ball bounces.)
 
 ```ts
 if (x < 0) {
@@ -139,11 +142,6 @@ if (x > 800 - 30) {
 }
 if (y < 0) {
   y = 0;
-  vy = -vy;
-  playBonk();
-}
-if (y > 600 - 30) {
-  y = 600 - 30;
   vy = -vy;
   playBonk();
 }
@@ -182,8 +180,10 @@ to the browser's audio system *through* the Web Audio API.
 - Change the frequency: `osc.frequency.value = 880;` (twice as
   high — an A an octave up). Try `220` (an octave down). Try `60`
   (very low rumble). Try `2000` (high squeak).
-- Change the duration: replace both `0.1` values with `0.3` for a
-  longer beep, or `0.05` for a sharper one.
+- Change the duration: replace **both** `0.1` values in `playBonk`
+  with `0.3` for a longer beep, or `0.05` for a sharper one. (One
+  `0.1` is when the sound fades out; the other is when it actually
+  stops — they need to match.)
 - Change the volume: `gain.gain.value = 0.05;` (quieter) or `0.5;`
   (louder).
 
@@ -255,6 +255,10 @@ New words:
 - **API** — a set of named tools that one layer of software offers
   to another. The browser has lots of APIs — Canvas, Web Audio,
   Storage, etc.
+- **Parameter** — a name in a function's `()` that gets a value
+  from whoever called the function. In `function playBonk(frequency: number)`,
+  `frequency` is a parameter; in `playBonk(880)`, `880` is the
+  argument that fills it.
 
 ## What's next
 

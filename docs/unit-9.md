@@ -178,6 +178,9 @@ true, do A; otherwise do B."
 - Make *more* rows tough: change `row < 2` to `row < 3`.
 - Add a *third* tier: bricks with `hp: 3` that need three hits.
   Color them red. You'll need another `if`/`else if` branch.
+  (Tip: put the **most specific** check first. If both `row < 1`
+  and `row < 2` are true, only the first matching branch runs —
+  so put the higher-hp check earlier in the chain.)
 - Make tough bricks worth more points: bigger `score += ...` when
   destroying a brick with high hp.
 - Swap the layout: tough bricks on the *bottom* instead.

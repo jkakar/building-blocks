@@ -103,8 +103,9 @@ For now `gameState` is just a string. It can be `"playing"` or
 `"gameOver"`. (We'll learn fancier ways to handle this later — a
 string is plenty for now.)
 
-Change the "ball below the paddle" code so it switches `gameState`
-to `"gameOver"` when lives hit zero, instead of resetting:
+Now we expand the `if (y > 600)` block you wrote in Step 2.
+Replace it with this version, which checks whether lives just
+ran out:
 
 ```ts
 if (y > 600) {
@@ -162,13 +163,19 @@ if (gameState === "gameOver") {
 Save. Miss the ball three times — the ball freezes and a big
 "Game Over" appears in the middle of the canvas.
 
+You'll notice the ball is still *visible* in the game-over state.
+That's intentional: `update` returns early (no motion), but
+`draw` still runs, so the frozen ball stays on screen under the
+"Game Over" text. We're freezing the simulation, not hiding it.
+
 ## Step 4 — Press space to restart
 
 A game with no way to start over is a sad game. Let the player
 press the space bar to reset.
 
-Add this inside the `if (gameState === "gameOver")` block at the
-top of `update`:
+Add an `isKeyDown(" ")` check inside the `if (gameState === "gameOver")`
+block at the top of `update` — **before** the `return;`, so we run
+the check on game-over frames:
 
 ```ts
 if (gameState === "gameOver") {
@@ -183,6 +190,9 @@ if (gameState === "gameOver") {
   return;
 }
 ```
+
+(The `return;` at the end stays put — it's how the rest of
+`update` keeps skipping when we're in the game-over state.)
 
 Note the key name: `" "` (a single space inside quotes) is what
 `isKeyDown` calls the space bar.
@@ -201,6 +211,9 @@ player is "playing" or "paused"; a button is "idle," "hovered," or
 :::
 
 ## Step 5 — Play with it
+
+Each of these should keep the game working — if your save
+suddenly breaks, undo and try the next one.
 
 - Change `lives = 3` to `lives = 1`. Sudden-death mode.
 - Add a "you can do it!" message that appears when `lives === 1`.
@@ -222,6 +235,8 @@ You need a new variable like `let streak = 0;`. In the
 paddle-bounce code from Unit 3, do `streak = streak + 1;`. In the
 "lose a life" code, do `streak = 0;`. To show it, another
 `fillText` call — somewhere it won't overlap the lives text.
+(The lives text sits around y = 30; y = 55 gives the streak its
+own line just below.)
 
 </details>
 
