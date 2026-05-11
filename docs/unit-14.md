@@ -89,6 +89,12 @@ in your browser. You'll see a big dashed-line area that says
 
 In Finder, navigate to your project's `dist/` folder.
 
+::: tip Finding `dist/` from Zed
+The fastest way: in Zed's file tree, right-click the `dist/`
+folder and pick **Reveal in Finder**. Finder opens with `dist/`
+already highlighted, ready to drag.
+:::
+
 **Drag the `dist/` folder onto that area.** Don't drag the
 *contents* of `dist/` — drag the folder itself.
 
@@ -137,8 +143,10 @@ do it.
 
 Right now the browser tab for your game shows a generic globe
 icon. Make a small image (32×32 pixels) and save it as
-`public/favicon.ico` (or `.png`) in your project. Rebuild and
-redeploy. The tab now shows your image.
+`public/favicon.ico` (or `.png`) in your project. (If your project
+doesn't have a `public/` folder yet — most don't — just create
+one next to `src/`.) Rebuild and redeploy. The tab now shows
+your image.
 
 <details><summary>Hint</summary>
 
@@ -174,6 +182,26 @@ Ask a grown-up for this one. DNS is fiddly.
 
 </details>
 
+## Look how far you came
+
+Open `docs/unit-0.md` (or scroll back in your memory). Unit 0 was
+a static red square on a black canvas. Fourteen units later, you
+have:
+
+- A paddle you control with the arrow keys.
+- A ball that bounces off walls and your paddle.
+- Lives, a Game Over screen, and a way to restart.
+- A score, a satisfying bonk on every hit, and an explosion of
+  particles when a brick dies.
+- Five rows of bricks, some tough, some that randomly start
+  falling toward you.
+- Power-ups that drop, float down, and widen your paddle.
+- Levels designed by you in a separate text file.
+- A live URL anyone with a browser can visit.
+
+You wrote every line. No AI typed for you. Every name in your
+`main.ts` is one you put there.
+
 ## What you just did
 
 - Built your game for production.
@@ -205,7 +233,12 @@ A few places to go from here:
 - **Synthesis stretches** (see the [Roadmap](/roadmap)) — take
   everything you've learned and make a *variation* of the game.
   Different controls, different game mode, different goal. No
-  walkthrough — just an idea and what you already know.
+  walkthrough — just an idea and what you already know. One
+  starter idea to chew on: **make the paddle sticky.** When the
+  ball touches the paddle, it sticks instead of bouncing. Press
+  space to launch it back into play. (Hint: a new piece of state
+  like `let ballStuck = false;`, and you skip the ball motion
+  while it's true.) Try it; see how far you get on your own.
 - **Other game ideas.** The engine in `game.ts` works for any
   2D game, not just brick-breaker. Try Snake, Pong, a top-down
   shooter, an asteroid dodge, a maze. Same Canvas, same `update`
