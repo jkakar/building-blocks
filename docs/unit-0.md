@@ -196,7 +196,7 @@ This is the web page that holds your game.
      </head>
      <body>
        <canvas id="game" width="800" height="600"></canvas>
-       <script type="module" src="/src/main.ts"></script>
+       <script type="module" src="./src/main.ts"></script>
      </body>
    </html>
    ```
@@ -211,8 +211,9 @@ What this file is doing:
   it from JavaScript later.
 - The `<style>` block makes the canvas sit in the middle of a dark
   gray page.
-- The `<script>` tag says "load my code from `/src/main.ts`." You
-  haven't written that file yet. You will.
+- The `<script>` tag says "load my code from `./src/main.ts`." (The
+  `./` part means "starting from the folder this HTML file is in.")
+  You haven't written that file yet. You will.
 
 **Quick check.** Look at the `<canvas>` line. How wide is your
 canvas, in pixels?
@@ -260,6 +261,18 @@ What this file is doing:
     run the code.
   - **Vite** — runs a tiny web server on your computer and reloads the
     page when you save changes.
+
+::: tip Vocab: module
+You may have noticed the word **module** keeps appearing — in
+`"type": "module"` here, in `<script type="module">` in
+`index.html`, and (coming up) in `"module": "ESNext"` in
+`tsconfig.json`. They all mean roughly the same thing: a *file*
+that exports things other files can import. `"type": "module"`
+tells Node to treat your `.ts` files as modules (the modern way,
+with `import` and `export`). The `<script type="module">` does the
+same for the browser. You don't need to dig deeper — just know
+that the three uses of "module" are pointing at the same idea.
+:::
 
 ## Step 8 — Install the project's tools
 
@@ -376,12 +389,17 @@ What this engine gives you (you'll use these in `main.ts`):
 - `isKeyDown(key)` — returns `true` if the given key is being held
   down right now.
 - `WIDTH` and `HEIGHT` — the size of the canvas (800 and 600).
-- `Ctx` — a *type* for the thing you draw with. You'll see what a
-  type is in a minute.
+- `Ctx` — a *type* for the thing you draw with. TypeScript uses
+  types to catch mistakes; you don't need to know more than that
+  for now.
 
-You don't need to understand `requestAnimationFrame` or
-`addEventListener` yet. The engine is doing the bookkeeping so you
-don't have to.
+You don't need to understand most of what's in `game.ts`.
+Things like `as HTMLCanvasElement | null`, `Set<string>`, the `!`
+in `ctx!`, `throw new Error(...)`, `requestAnimationFrame`,
+`addEventListener` — these are TypeScript being careful or the
+engine doing bookkeeping. None of them are game logic. You'll
+meet some of them later; others you may never need to. Either
+way, the engine works.
 
 ## Step 11 — Create `src/main.ts` (your game)
 
@@ -416,8 +434,8 @@ What this file is doing:
   `game` that's right next to me."
 - `function update(dt: number) { ... }` — code that runs 60 times per
   second. `dt` is the number of seconds since the last time `update`
-  ran (usually about `0.0166`). You'll use it later to move things
-  smoothly.
+  ran (usually about `0.0166`). Your `update` doesn't use `dt` yet —
+  in Unit 1 it'll matter, when you make things move smoothly.
 - `function draw(ctx: Ctx) { ... }` — code that draws to the canvas,
   once after every `update`. `ctx` is the "brush" you draw with.
   - `ctx.fillStyle = "red";` — set the brush color to red.
@@ -481,6 +499,9 @@ Chrome, Firefox.
 
 **You should see a black rectangle with a small red square inside it.**
 That's your game.
+
+If you don't see the red square, scroll down to
+[Troubleshooting](#troubleshooting) at the end of this unit.
 
 ## Step 13 — Change something
 
