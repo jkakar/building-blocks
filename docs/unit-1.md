@@ -168,6 +168,16 @@ import { start, isKeyDown, Ctx } from "./game";
 
 (We added `isKeyDown` between `start` and `Ctx`.)
 
+::: tip Vocab: import
+That **`import`** line is how `main.ts` borrows things from another
+file. Each file in your project is its own little world, and
+`import` is how you reach into another file and pull names out of
+it. `./game` means "the file called `game.ts` next to me." The
+names in `{ ... }` are the things you're borrowing — once they're
+imported, you can use them in `main.ts` as if they were defined
+here.
+:::
+
 Then change `update`:
 
 ```ts
@@ -322,6 +332,8 @@ A few new words:
 - **`if`** — runs a block of code only when a condition is true.
 - **`dt`** — short for "delta time" — the seconds since the last
   `update` ran.
+- **Import** — a line that pulls names (functions, types, etc.)
+  from another file into this one so you can use them.
 
 ## What's next
 

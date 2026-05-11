@@ -40,6 +40,15 @@ hint doesn't unstick the learner, that's where the grown-up steps
 in. The doc isn't trying to be the teacher — it's a course they
 work through with help nearby.
 
+Concepts get named as they're encountered, never before. New terms
+get a 1–2 sentence inline definition the first time they appear,
+plus a slot in the end-of-unit glossary. When a concept has been
+*used* for a while without being *named* — `function` is the
+canonical example — a short **vocab callout** does the naming in
+2–3 sentences. Across the whole arc there are maybe 8–10 callouts
+total. The goal is to give learners words for the abstractions
+they're already using, not to teach theory in advance of the work.
+
 ## v0 — paddle, ball, lives
 
 **Unit 1 — A square that moves.** Arrow keys move the square left
