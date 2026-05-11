@@ -3,6 +3,8 @@
 Learning materials for a course that teaches programming by building a
 brick-breaker game, one version at a time.
 
+**Live site:** https://jkakar.github.io/building-blocks/
+
 ## Repo layout
 
 - `docs/` — [VitePress](https://vitepress.dev) source for the materials
