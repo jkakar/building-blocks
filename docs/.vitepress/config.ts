@@ -3,6 +3,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "Building Blocks",
   description: "Learn to program by building a game.",
+  base: "/building-blocks/",
   cleanUrls: true,
   themeConfig: {
     nav: [
