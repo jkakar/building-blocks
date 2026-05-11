@@ -122,17 +122,14 @@ Finder and Terminal both show the same files — Finder visually
 because it's faster to give you exact commands to copy. You can
 always open the same folder in Finder afterward to see it.
 
-## Step 4 — Make a workshop folder
+## Step 4 — Make a project folder
 
-You need a folder to keep all your game projects in. Back in
-Terminal, type these commands **one at a time**, pressing enter after
-each:
+You need a folder to keep your game in. Back in Terminal, type these
+commands **one at a time**, pressing enter after each:
 
 ```sh
-mkdir ~/building-blocks
-cd ~/building-blocks
-mkdir v0-paddle
-cd v0-paddle
+mkdir ~/blocks
+cd ~/blocks
 ```
 
 What those words mean:
@@ -141,23 +138,19 @@ What those words mean:
   thing as a folder.
 - `cd` is short for **change directory** — go *into* a folder.
 - `~` is shorthand for your home folder (the one with your name on it).
-- So `~/building-blocks` means "a folder called `building-blocks` inside
-  my home folder."
+- So `~/blocks` means "a folder called `blocks` inside my home
+  folder."
 
-You now have:
-
-- `~/building-blocks` — the folder that will hold *all* your game
-  versions.
-- `~/building-blocks/v0-paddle` — the folder for your **first** version,
-  which is the one you're building right now.
+You now have `~/blocks` — the folder where your whole game
+lives. It's empty right now. Everything you write from here on goes
+inside it.
 
 ## Step 5 — Open the folder in Zed
 
 In Zed:
 
 1. **File** menu → **Open...**
-2. Navigate to your home folder, then `building-blocks`, then
-   `v0-paddle`.
+2. Navigate to your home folder, then `blocks`.
 3. Click **Open**.
 
 Zed will now show an empty file tree on the left (because the folder
@@ -170,7 +163,7 @@ This is the web page that holds your game.
 
 1. In Zed, press `cmd + N` to make a new file.
 2. Press `cmd + S` to save it. Name it `index.html`. Make sure you're
-   saving it inside `v0-paddle`.
+   saving it inside `blocks`.
 3. Paste this in:
 
    ```html
@@ -178,7 +171,7 @@ This is the web page that holds your game.
    <html>
      <head>
        <meta charset="utf-8" />
-       <title>Building Blocks — v0</title>
+       <title>Blocks</title>
        <style>
          body {
            margin: 0;
@@ -233,7 +226,7 @@ This file tells your project what tools it needs.
 
    ```json
    {
-     "name": "v0-paddle",
+     "name": "blocks",
      "private": true,
      "type": "module",
      "scripts": {
@@ -330,7 +323,7 @@ build everything on top of it. You won't change it. Later — once
 you're more comfortable — we'll come back and look at how it works.
 For now, just trust it.
 
-1. In Zed's file tree, right-click in the `v0-paddle` folder and
+1. In Zed's file tree, right-click in the `blocks` folder and
    choose **New Folder**. Name it `src`.
 2. Inside `src`, create a new file called `game.ts`. Paste this in:
 

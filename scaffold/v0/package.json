@@ -1,5 +1,5 @@
 {
-  "name": "v0-paddle",
+  "name": "blocks",
   "private": true,
   "type": "module",
   "scripts": {
