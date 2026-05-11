@@ -95,6 +95,30 @@ folder (or `cmd + space`, type `zed`).
 The first time you open Zed it shows a mostly empty screen with a
 "Welcome" tab. That's normal. Close the Welcome tab if you like.
 
+## A quick aside: files and folders
+
+You've used files and folders before — a photo is a file, the Desktop
+is a folder. A few ideas matter for the next step:
+
+- **Folders can hold folders.** Boxes inside boxes. You're about to
+  make a folder inside your home folder, and another folder inside
+  *that*.
+- **Every file and folder has a path.** A path is the trail of folder
+  names that gets you there, written with forward slashes:
+  `/Users/alex/school/math/homework.pdf` means: top of the disk →
+  `Users` → `alex` → `school` → `math` → the file `homework.pdf`.
+- **`~` is shorthand for your home folder.** Your home folder is the
+  one named after you (usually `/Users/yourname/`). Typing `~/foo` is
+  the same as typing `/Users/yourname/foo`, just shorter.
+- **Files have endings** like `.html`, `.json`, `.ts`. The ending
+  tells your computer what kind of file it is. You'll make files
+  ending in all three soon.
+
+Finder and Terminal both show the same files — Finder visually
+(click to open), Terminal as text and commands. We use Terminal here
+because it's faster to give you exact commands to copy. You can
+always open the same folder in Finder afterward to see it.
+
 ## Step 4 — Make a workshop folder
 
 You need a folder to keep all your game projects in. Back in
