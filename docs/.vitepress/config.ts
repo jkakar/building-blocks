@@ -15,7 +15,45 @@ export default defineConfig({
         items: [
           { text: "Welcome", link: "/" },
           { text: "Unit 0 — Set up your workshop", link: "/unit-0" },
+        ],
+      },
+      {
+        text: "v0 — paddle, ball, lives",
+        items: [
           { text: "Unit 1 — A square that moves", link: "/unit-1" },
+          { text: "Unit 2 — A ball that bounces", link: "/unit-2" },
+          { text: "Unit 3 — Bring back the paddle", link: "/unit-3" },
+          { text: "Unit 4 — Lives and game over", link: "/unit-4" },
+        ],
+      },
+      {
+        text: "v0+ — polish",
+        items: [
+          { text: "Unit 5 — Score and sound", link: "/unit-5" },
+          { text: "Unit 6 — Refactor", link: "/unit-6" },
+        ],
+      },
+      {
+        text: "v1 — bricks",
+        items: [
+          { text: "Unit 7 — A row of bricks", link: "/unit-7" },
+          { text: "Unit 8 — Multiple rows", link: "/unit-8" },
+        ],
+      },
+      {
+        text: "v2 — brick types",
+        items: [{ text: "Unit 9 — Tough bricks", link: "/unit-9" }],
+      },
+      {
+        text: "v3 — falling bricks",
+        items: [
+          { text: "Unit 10 — Bricks that drift down", link: "/unit-10" },
+        ],
+      },
+      {
+        text: "v4 — particles",
+        items: [
+          { text: "Unit 11 — Explosions when a brick dies", link: "/unit-11" },
         ],
       },
       {
