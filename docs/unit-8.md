@@ -174,6 +174,16 @@ let bricks: { x: number; y: number; width: number; height: number; alive: boolea
 buildBricks();
 ```
 
+::: warning Hoisting heads-up
+Calling `buildBricks()` *above* its `function` declaration looks
+wrong, but it works: TypeScript hoists `function`-style functions
+to the top of their scope, so the call sees the definition even
+though the definition appears later in the file. (Same trick is
+why your `start(update, draw);` at the bottom of the file works.)
+You don't have to know how it works to use it; just know it's not
+a typo.
+:::
+
 ```ts
 // In restartGame:
 function restartGame() {
