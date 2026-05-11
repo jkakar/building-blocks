@@ -15,6 +15,7 @@ export default defineConfig({
         items: [
           { text: "Welcome", link: "/" },
           { text: "Unit 0 — Set up your workshop", link: "/unit-0" },
+          { text: "Unit 1 — A square that moves", link: "/unit-1" },
         ],
       },
       {

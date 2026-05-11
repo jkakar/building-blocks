@@ -1,12 +1,20 @@
-import { start, Ctx } from "./game";
+import { start, isKeyDown, Ctx } from "./game";
+
+let x = 100;
+let y = 100;
 
 function update(dt: number) {
-  // Nothing happens here yet.
+  if (isKeyDown("ArrowLeft")) {
+    x = x - 200 * dt;
+  }
+  if (isKeyDown("ArrowRight")) {
+    x = x + 200 * dt;
+  }
 }
 
 function draw(ctx: Ctx) {
   ctx.fillStyle = "red";
-  ctx.fillRect(100, 100, 30, 30);
+  ctx.fillRect(x, y, 30, 30);
 }
 
 start(update, draw);
