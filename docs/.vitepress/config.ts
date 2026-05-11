@@ -57,6 +57,20 @@ export default defineConfig({
         ],
       },
       {
+        text: "v5 — power-ups",
+        items: [{ text: "Unit 12 — Power-ups", link: "/unit-12" }],
+      },
+      {
+        text: "v6 — levels from text",
+        items: [
+          { text: "Unit 13 — Load a level from a file", link: "/unit-13" },
+        ],
+      },
+      {
+        text: "Ship it",
+        items: [{ text: "Unit 14 — Deploy and share", link: "/unit-14" }],
+      },
+      {
         text: "Planning",
         items: [{ text: "Roadmap", link: "/roadmap" }],
       },
