@@ -230,15 +230,15 @@ line of code in it.
 
 A few places to go from here:
 
-- **Synthesis stretches** (see the [Roadmap](/roadmap)) — take
-  everything you've learned and make a *variation* of the game.
-  Different controls, different game mode, different goal. No
-  walkthrough — just an idea and what you already know. One
-  starter idea to chew on: **make the paddle sticky.** When the
-  ball touches the paddle, it sticks instead of bouncing. Press
-  space to launch it back into play. (Hint: a new piece of state
-  like `let ballStuck = false;`, and you skip the ball motion
-  while it's true.) Try it; see how far you get on your own.
+- **Pick a synthesis stretch.** Take everything you've learned
+  and make a *variation* of the game. Different controls,
+  different game mode, different goal. No walkthrough — just an
+  idea and what you already know. One starter idea to chew on:
+  **make the paddle sticky.** When the ball touches the paddle,
+  it sticks instead of bouncing. Press space to launch it back
+  into play. (Hint: a new piece of state like
+  `let ballStuck = false;`, and you skip the ball motion while
+  it's true.) Try it; see how far you get on your own.
 - **Other game ideas.** The engine in `game.ts` works for any
   2D game, not just brick-breaker. Try Snake, Pong, a top-down
   shooter, an asteroid dodge, a maze. Same Canvas, same `update`
