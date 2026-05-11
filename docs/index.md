@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Start with Unit 0
-      link: /unit-0
+      link: /procedural/unit-0
 
 features:
   - title: Build a real game
