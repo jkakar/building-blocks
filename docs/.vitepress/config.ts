@@ -5,7 +5,10 @@ export default defineConfig({
   description: "Learn to program by building a game.",
   cleanUrls: true,
   themeConfig: {
-    nav: [{ text: "Start here", link: "/unit-0" }],
+    nav: [
+      { text: "Start here", link: "/unit-0" },
+      { text: "Roadmap", link: "/roadmap" },
+    ],
     sidebar: [
       {
         text: "Getting started",
@@ -13,6 +16,10 @@ export default defineConfig({
           { text: "Welcome", link: "/" },
           { text: "Unit 0 — Set up your workshop", link: "/unit-0" },
         ],
+      },
+      {
+        text: "Planning",
+        items: [{ text: "Roadmap", link: "/roadmap" }],
       },
     ],
     socialLinks: [
