@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
-  title: "Bricks",
+  title: "Building Blocks",
   description: "Learn to program by building a game.",
   cleanUrls: true,
   themeConfig: {

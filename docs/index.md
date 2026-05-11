@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: Bricks
+  name: Building Blocks
   text: Learn to program by building a game.
   tagline: A self-paced course for new programmers.
   actions:

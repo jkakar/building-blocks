@@ -43,8 +43,8 @@ The first time you open Zed it shows a mostly empty screen with a "Welcome" tab.
 You need a folder to keep all your game projects in. Back in Terminal, type these commands **one at a time**, pressing enter after each:
 
 ```sh
-mkdir ~/bricks
-cd ~/bricks
+mkdir ~/building-blocks
+cd ~/building-blocks
 mkdir v0-paddle
 cd v0-paddle
 ```
@@ -54,19 +54,19 @@ What those words mean:
 - `mkdir` is short for **make directory**. A *directory* is the same thing as a folder.
 - `cd` is short for **change directory** — go *into* a folder.
 - `~` is shorthand for your home folder (the one with your name on it).
-- So `~/bricks` means "a folder called `bricks` inside my home folder."
+- So `~/building-blocks` means "a folder called `building-blocks` inside my home folder."
 
 You now have:
 
-- `~/bricks` — the folder that will hold *all* your game versions.
-- `~/bricks/v0-paddle` — the folder for your **first** version, which is the one you're building right now.
+- `~/building-blocks` — the folder that will hold *all* your game versions.
+- `~/building-blocks/v0-paddle` — the folder for your **first** version, which is the one you're building right now.
 
 ## Step 4 — Open the folder in Zed
 
 In Zed:
 
 1. **File** menu → **Open...**
-2. Navigate to your home folder, then `bricks`, then `v0-paddle`.
+2. Navigate to your home folder, then `building-blocks`, then `v0-paddle`.
 3. Click **Open**.
 
 Zed will now show an empty file tree on the left (because the folder has nothing in it yet) and a big empty area on the right. You're ready to add files.
@@ -84,7 +84,7 @@ This is the web page that holds your game.
    <html>
      <head>
        <meta charset="utf-8" />
-       <title>Bricks v0</title>
+       <title>Building Blocks — v0</title>
        <style>
          body {
            margin: 0;
