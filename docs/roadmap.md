@@ -15,6 +15,31 @@ informed by how the previous units played out with real learners.
   units have lots of new concepts; later units are mostly application
   of what's already been taught.
 
+## How the units evolve
+
+The shape of a unit changes as the learner builds up. Early units
+do a lot of guided typing — they're learning *syntax*, and someone
+who hasn't seen `if` before isn't going to invent it. Later units
+expect the learner to apply patterns they've already seen.
+
+- **Units 1–4 (fundamentals).** Mostly guided. New syntax in almost
+  every step. One or two real challenges at the end with hints but
+  no full-answer reveals.
+- **Units 5–8 (apply + extend).** Half guided, half open. The new
+  concept gets walked through; using it is partly theirs to work
+  out.
+- **Units 9–14 (mostly application).** A brief opening section
+  introduces any new idea. The rest of the unit is structured
+  around what they build, not what they type.
+- **Synthesis stretches** sit at three points in the arc (after
+  Units 4, 8, and 13). These are optional — see the callouts
+  below.
+
+Challenges in every unit have hints but never full answers. If a
+hint doesn't unstick the learner, that's where the grown-up steps
+in. The doc isn't trying to be the teacher — it's a course they
+work through with help nearby.
+
 ## v0 — paddle, ball, lives
 
 **Unit 1 — A square that moves.** Arrow keys move the square left
@@ -37,6 +62,13 @@ whiff of refactor pressure (two of everything).
 lose a life. 0 lives = a "Game over" screen. End: **v0** complete.
 Concepts: a counter variable (lives), a state machine (`playing` vs
 `gameOver`), drawing text on canvas (`ctx.fillText`), reset logic.
+
+**Optional synthesis stretch — after v0.** Given everything in
+Units 1–4, change one major thing about the game without a
+step-by-step. Possibilities: paddle on the *left* instead of the
+bottom with the ball bouncing sideways; or a square that follows
+the *mouse* instead of a paddle. The doc gives a goal and a
+concepts list, nothing more.
 
 ## v0+ — polish
 
@@ -64,6 +96,11 @@ removing an item from an array.
 them all. End: **v1** — a fully recognizable brick-breaker.
 Concepts: nested `for` loops (rows × columns), end-of-level
 handling.
+
+**Optional synthesis stretch — after v1.** Take the working
+brick-breaker and make a personal variation. Different brick
+layout, inverted gravity, two paddles, "the ball gets faster after
+each hit" — pick something.
 
 ## v2 — brick types
 
@@ -104,6 +141,11 @@ own. End: **v6** — a small level editor of sorts. Concepts:
 `fetch`, parsing strings into a 2D grid, *data* vs. *code*, and the
 satisfaction of a self-designed level.
 
+**Optional synthesis stretch — after v6.** Design a fully custom
+variant using everything from the arc. Multi-session — basically a
+personal project shaped like a unit. The grown-up shapes the brief
+based on what the learner is interested in.
+
 ## Ship it
 
 **Unit 14 — Deploy & share.** Build the production version of the
@@ -129,10 +171,6 @@ kids lose interest.
   bricks quickly. Builds on score, introduces time-based bonuses.
 - **Background music.** Mixing music with sound effects. Could slot
   after Unit 5 or as polish for v4.
-- **A "make your own variant" capstone.** Open-ended challenge:
-  change one major thing about the game (different controls,
-  different win condition, different game mode). Could be a
-  multi-week project that builds independence.
 
 ## A note on timing
 
