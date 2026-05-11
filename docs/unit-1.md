@@ -7,7 +7,7 @@ per second" is the right way to talk about speed.
 
 ## Open your project
 
-Open Zed. Open the folder `~/building-blocks`. Open Zed's
+Open Zed. Open the folder `~/blocks`. Open Zed's
 terminal (``ctrl + ` ``) and start the dev server:
 
 ```sh
