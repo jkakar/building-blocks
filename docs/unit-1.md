@@ -97,6 +97,17 @@ Nothing has changed it since.
 
 </details>
 
+**Quick check.** What would change if you replaced `let x = 100;`
+with `let x = 300;` and saved?
+
+<details><summary>Click for the answer</summary>
+
+The red square would jump to the right, to where x is 300. The
+`draw` function looks up `x` and uses it — it doesn't care that you
+typed `100` originally. That's the whole point of variables.
+
+</details>
+
 ## Step 2 — Make it move (too fast on purpose)
 
 Now we'll have `update` change `x` over time. Add one line inside
@@ -159,6 +170,18 @@ second, and 800 ÷ 200 = 4.
 The square moves on its own right now, off the screen. We want it
 to only move when you actually press a key.
 
+::: tip Vocab: import
+The **`import`** line at the top of `main.ts` is how this file
+borrows things from another file. Each file in your project is
+its own little world, and `import` is how you reach into another
+file and pull names out of it. `./game` means "the file called
+`game.ts` next to me." The names in `{ ... }` are the things
+you're borrowing — once imported, you can use them as if they
+were defined right here.
+
+You're about to edit that line to borrow one more name.
+:::
+
 First, update the import at the top of `main.ts` so we can use a
 new function called `isKeyDown`:
 
@@ -167,16 +190,6 @@ import { start, isKeyDown, Ctx } from "./game";
 ```
 
 (We added `isKeyDown` between `start` and `Ctx`.)
-
-::: tip Vocab: import
-That **`import`** line is how `main.ts` borrows things from another
-file. Each file in your project is its own little world, and
-`import` is how you reach into another file and pull names out of
-it. `./game` means "the file called `game.ts` next to me." The
-names in `{ ... }` are the things you're borrowing — once they're
-imported, you can use them in `main.ts` as if they were defined
-here.
-:::
 
 Then change `update`:
 
@@ -199,8 +212,12 @@ What does the square do if you *don't* touch the keyboard?
 It sits still. Neither `if` is true (no arrow keys are held), so
 nothing inside either block runs. `x` doesn't change.
 
-Now save, click on the browser window, and press the right arrow.
-The square should slide right while you hold it.
+Now save, **click on the browser window**, and press the right
+arrow. The square should slide right while you hold it.
+
+(The "click on the browser window" part matters. Your computer
+sends keyboard input to whichever app you last clicked. If you
+just hit save in Zed, the keys are going to Zed, not the browser.)
 
 </details>
 
@@ -226,6 +243,33 @@ first `x = x - 200 * dt;`, then `x = x + 200 * dt;` — `x` ends up
 where it started.
 
 </details>
+
+Your full `main.ts` should look like this now:
+
+```ts
+import { start, isKeyDown, Ctx } from "./game";
+
+let x = 100;
+let y = 100;
+
+function update(dt: number) {
+  if (isKeyDown("ArrowLeft")) {
+    x = x - 200 * dt;
+  }
+  if (isKeyDown("ArrowRight")) {
+    x = x + 200 * dt;
+  }
+}
+
+function draw(ctx: Ctx) {
+  ctx.fillStyle = "red";
+  ctx.fillRect(x, y, 30, 30);
+}
+
+start(update, draw);
+```
+
+If yours doesn't match, fix it before moving on.
 
 ## Step 4 — Play with it
 
@@ -275,19 +319,22 @@ disappears. Make it stop at the edges instead. When the square
 hits a wall, it should sit against the wall until you push the
 other way.
 
+Some numbers to work with: the canvas is **800 wide and 600 tall**,
+and the square is **30 wide and 30 tall**.
+
 <details><summary>Hint</summary>
 
-A few things to figure out:
+`ctx.fillRect(x, y, 30, 30)` draws the square's *top-left corner*
+at `(x, y)`. So when `x` is `0`, the square is touching the left
+edge. But when `x` is `800`, the square is *past* the right edge
+— its left side is at the canvas's right edge, and the rest is
+off-screen. When does the square's *right* side line up with the
+*right* edge of the canvas? Work that number out before writing
+any code.
 
-- The canvas is **800 wide and 600 tall**. The square is **30
-  wide and 30 tall**.
-- `ctx.fillRect(x, y, 30, 30)` draws the square's *top-left
-  corner* at `(x, y)`. So when `x` is `0`, the square is touching
-  the left edge. When does the square's *right* side touch the
-  *right* edge? Work the number out before writing any code.
-- One approach: *after* `update` changes `x` and `y`, add some
-  `if` checks that *fix* `x` or `y` if they've gone too far.
-  There are four edges to think about.
+One approach: *after* `update` changes `x` and `y`, add some `if`
+checks that *fix* `x` or `y` if they've gone too far. There are
+four edges to think about.
 
 </details>
 
