@@ -129,6 +129,13 @@ last is the alpha (0 = fully see-through, 1 = fully opaque).
 lifetime: when life is 0.5 (just spawned), alpha is 1.0 (fully
 visible). When life is 0 (about to die), alpha is 0 (invisible).
 
+Notice the `0.5` appears in *two* places — here, and in
+`spawnParticles` as the starting `life`. They need to stay in
+sync. If you wanted to tweak the lifetime, you'd change both. A
+fancier version would put `0.5` in a `const PARTICLE_LIFE = 0.5;`
+at the top of the file and use that name in both spots. Not
+required, just a small improvement worth knowing about.
+
 Call both from `update` and `draw`:
 
 ```ts
