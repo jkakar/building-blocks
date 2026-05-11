@@ -11,6 +11,9 @@ all of your time in one file, writing game code.
 Take your time. If something breaks, scroll to
 [Troubleshooting](#troubleshooting) at the end.
 
+Along the way you'll see **Quick check** boxes with a question. Try
+to answer in your head before clicking to see the answer.
+
 ## What you're going to install
 
 - **Homebrew** — a tool that installs other programs for you, from the
@@ -210,6 +213,16 @@ What this file is doing:
   gray page.
 - The `<script>` tag says "load my code from `/src/main.ts`." You
   haven't written that file yet. You will.
+
+**Quick check.** Look at the `<canvas>` line. How wide is your
+canvas, in pixels?
+
+<details><summary>Click for the answer</summary>
+
+800 pixels wide (and 600 pixels tall). The `<canvas>` tag has
+`width="800" height="600"`.
+
+</details>
 
 ## Step 7 — Create `package.json`
 
@@ -422,6 +435,22 @@ opposite of math class, where bigger `y` means *up*.) So `(100, 100)`
 means 100 pixels right, 100 pixels down.
 :::
 
+**Quick check.** Look at your `main.ts`. Which line actually *draws*
+the square on the screen?
+
+1. `import { start, Ctx } from "./game";`
+2. `function draw(ctx: Ctx) { ... }`
+3. `ctx.fillRect(100, 100, 30, 30);`
+
+<details><summary>Click for the answer</summary>
+
+**3.** `ctx.fillRect(100, 100, 30, 30);` is the line that actually
+draws. The `function draw(ctx: Ctx)` line just *names* the function
+that holds the drawing code — without `fillRect` inside it, nothing
+would appear.
+
+</details>
+
 ## Step 12 — Start the dev server
 
 In Zed's terminal (the bottom panel from Step 8), type:
@@ -446,11 +475,15 @@ That's your game.
 
 ## Step 13 — Change something
 
-In Zed, open `main.ts`. Change `"red"` to `"blue"`. Save (`cmd + S`).
+In Zed, open `main.ts`. Find the line that says
+`ctx.fillStyle = "red";` and change `"red"` to `"blue"`.
+
+**Predict first.** Before you save, picture in your head what's about
+to happen. Then save the file (`cmd + S`).
 
 Look at your browser. **The square turned blue without you doing
-anything else.** That's Vite's *hot reload* — it noticed you saved and
-updated the page for you.
+anything else.** Were you right? Either way: that's Vite's *hot
+reload* — it noticed you saved and updated the page for you.
 
 Try a few more changes:
 
@@ -466,6 +499,31 @@ Try a few more changes:
 
 This is the loop you'll be in for every unit from now on: change
 something, save, look at the browser, repeat.
+
+## On your own
+
+One last thing before you wrap up. The "Try a few more changes" list
+above gave you exact numbers. Now try one *without* the numbers
+spelled out:
+
+**Challenge.** Make the square land exactly in the middle of the
+canvas. The canvas is 800 wide and 600 tall. The square is 30 wide
+and 30 tall.
+
+<details><summary>Hint — after you've tried</summary>
+
+The middle of the canvas is at `(400, 300)`. But `fillRect` measures
+from the **top-left corner** of the square, not its center. So if you
+want the *center* of the square to be at `(400, 300)`, you have to
+start drawing 15 pixels up and to the left of that:
+`ctx.fillRect(400 - 15, 300 - 15, 30, 30)`, which is the same as
+`ctx.fillRect(385, 285, 30, 30)`.
+
+</details>
+
+If you got it without the hint, you understand `fillRect`. If the
+hint made it click, you also understand `fillRect` — that's how
+learning works.
 
 ## When you're done for the day
 
