@@ -16,7 +16,7 @@ export default defineConfig({
       },
     ],
     socialLinks: [
-      { icon: "github", link: "https://github.com/jkakar/bricks" },
+      { icon: "github", link: "https://github.com/jkakar/building-blocks" },
     ],
   },
 });

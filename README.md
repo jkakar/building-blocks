@@ -1,4 +1,4 @@
-# bricks
+# building-blocks
 
 Learning materials for a course that teaches programming by building a brick-breaker game, one version at a time.
 
