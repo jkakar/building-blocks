@@ -8,10 +8,6 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: "Start here", link: "/procedural/unit-0" },
-      {
-        text: "What you'll know",
-        link: "/procedural/what-youll-know",
-      },
     ],
     sidebar: [
       {
@@ -28,6 +24,10 @@ export default defineConfig({
         text: "Course 1 — Procedural",
         collapsed: false,
         items: [
+          {
+            text: "What you'll know",
+            link: "/procedural/what-youll-know",
+          },
           { text: "Unit 1 — A square that moves", link: "/procedural/unit-1" },
           { text: "Unit 2 — A ball that bounces", link: "/procedural/unit-2" },
           { text: "Unit 3 — Bring back the paddle", link: "/procedural/unit-3" },
@@ -57,6 +57,10 @@ export default defineConfig({
         text: "Course 2 — Event-driven",
         collapsed: true,
         items: [
+          {
+            text: "What you'll know",
+            link: "/event-driven/what-youll-know",
+          },
           { text: "Unit 1 — An event bus", link: "/event-driven/unit-1" },
           {
             text: "Unit 2 — Events all the way down",
@@ -73,6 +77,10 @@ export default defineConfig({
         text: "Course 3 — Object-oriented",
         collapsed: true,
         items: [
+          {
+            text: "What you'll know",
+            link: "/object-oriented/what-youll-know",
+          },
           { text: "Unit 1 — Ball as a class", link: "/object-oriented/unit-1" },
           {
             text: "Unit 2 — Paddle and Brick classes",
@@ -89,6 +97,10 @@ export default defineConfig({
         text: "Course 4 — Functional",
         collapsed: true,
         items: [
+          {
+            text: "What you'll know",
+            link: "/functional/what-youll-know",
+          },
           { text: "Unit 1 — State as data", link: "/functional/unit-1" },
           { text: "Unit 2 — Composition", link: "/functional/unit-2" },
           { text: "Unit 3 — Time travel", link: "/functional/unit-3" },
@@ -99,6 +111,10 @@ export default defineConfig({
         text: "Course 5 — Reactive",
         collapsed: true,
         items: [
+          {
+            text: "What you'll know",
+            link: "/reactive/what-youll-know",
+          },
           { text: "Unit 1 — Signals", link: "/reactive/unit-1" },
           { text: "Unit 2 — A clicker", link: "/reactive/unit-2" },
           { text: "Unit 3 — Auto-clickers", link: "/reactive/unit-3" },
@@ -109,6 +125,10 @@ export default defineConfig({
         text: "Course 6 — Entity-Component-System",
         collapsed: true,
         items: [
+          {
+            text: "What you'll know",
+            link: "/entity-component-system/what-youll-know",
+          },
           {
             text: "Unit 1 — Entities, components, systems",
             link: "/entity-component-system/unit-1",
@@ -124,15 +144,6 @@ export default defineConfig({
           {
             text: "Unit 4 — Collisions and lives",
             link: "/entity-component-system/unit-4",
-          },
-        ],
-      },
-      {
-        text: "Reference",
-        items: [
-          {
-            text: "What you'll know",
-            link: "/procedural/what-youll-know",
           },
         ],
       },

@@ -7,7 +7,7 @@ hero:
   tagline: A self-paced course for new programmers.
   actions:
     - theme: brand
-      text: Start with Unit 0
+      text: Start with Procedural Programming
       link: /procedural/unit-0
 
 features:
